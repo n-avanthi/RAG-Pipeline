@@ -1,0 +1,432 @@
+{
+  "meta": {
+    "timestamp": "2026-04-06T10:13:00",
+    "n_queries": 7,
+    "ac_top_k": 3,
+    "ac_n_clusters": 2,
+    "vanilla_top_k": 6,
+    "lambda": 0.7,
+    "total_clusters": 12,
+    "total_chunks": 3798,
+    "note": "Cohesion reported but excluded from competitive win/loss. AC-RAG claim: lower source concentration and higher diversity for cross-topic queries, at a small relevance cost."
+  },
+  "aggregate": {
+    "ac_rag": {
+      "relevance": 0.5852,
+      "diversity": 0.3916,
+      "redundancy": 0.6084,
+      "source_concentration": 0.4857,
+      "cohesion": 0.7164,
+      "rd_score": 0.2923,
+      "latency_s": 2.9381
+    },
+    "vanilla_rag": {
+      "relevance": 0.6226,
+      "diversity": 0.325,
+      "redundancy": 0.675,
+      "source_concentration": 0.6905,
+      "cohesion": 0.7683,
+      "rd_score": 0.2566,
+      "latency_s": 0.0009
+    },
+    "deltas": {
+      "relevance": -0.0374,
+      "diversity": 0.0666,
+      "redundancy": -0.0666,
+      "source_concentration": -0.2048,
+      "cohesion": -0.0519,
+      "rd_score": 0.0357
+    }
+  },
+  "per_query_results": [
+    {
+      "query_id": "Q1",
+      "query": "How do PPO's clipping objective and Adam's adaptive learning rates together stabilise training, and what failure modes does each introduce?",
+      "nuggets": [
+        "clipping",
+        "policy",
+        "surrogate",
+        "epsilon",
+        "adaptive",
+        "momentum",
+        "learning rate",
+        "gradient"
+      ],
+      "ac_rag": {
+        "relevance": 0.5842,
+        "diversity": 0.4231,
+        "redundancy": 0.5769,
+        "source_concentration": 0.5,
+        "cohesion": 0.6329,
+        "nugget_hit_rate": 0.75,
+        "rd_score": 0.3106,
+        "n_chunks": 6,
+        "n_clusters": 2,
+        "latency_s": 4.061,
+        "selected_clusters": [
+          2,
+          9
+        ],
+        "routing_reasoning": "These clusters provide contrasting perspectives on reinforcement learning techniques and optimization algorithms, addressing both the stabilization of training through PPO's clipping objective and Adam's adaptive learning rates, as well as the potential failure modes associated with each method.",
+        "centroid_sims": {
+          "2": 0.6098,
+          "9": 0.5477
+        }
+      },
+      "vanilla_rag": {
+        "relevance": 0.5924,
+        "diversity": 0.4163,
+        "redundancy": 0.5837,
+        "source_concentration": 0.3333,
+        "cohesion": 0.6339,
+        "nugget_hit_rate": 0.625,
+        "rd_score": 0.3081,
+        "n_chunks": 6,
+        "n_clusters": 3,
+        "latency_s": 0.001
+      },
+      "deltas": {
+        "relevance": -0.0082,
+        "diversity": 0.0068,
+        "redundancy": -0.0068,
+        "source_concentration": 0.1667,
+        "cohesion": -0.001,
+        "rd_score": 0.0025
+      }
+    },
+    {
+      "query_id": "Q2",
+      "query": "What do RAG's external retrieval and transformer self-attention have in common architecturally, and where do they fundamentally diverge in how they surface relevant information?",
+      "nuggets": [
+        "retrieval",
+        "document",
+        "dense",
+        "index",
+        "attention",
+        "key",
+        "value",
+        "query"
+      ],
+      "ac_rag": {
+        "relevance": 0.5877,
+        "diversity": 0.3849,
+        "redundancy": 0.6151,
+        "source_concentration": 0.3333,
+        "cohesion": 0.7097,
+        "nugget_hit_rate": 0.375,
+        "rd_score": 0.29,
+        "n_chunks": 6,
+        "n_clusters": 2,
+        "latency_s": 3.198,
+        "selected_clusters": [
+          5,
+          6
+        ],
+        "routing_reasoning": "These clusters provide contrasting perspectives on the architectural similarities and differences between retrieval-augmented generation and transformer self-attention, focusing on innovative frameworks, architectural mechanisms, and optimization techniques.",
+        "centroid_sims": {
+          "5": 0.6357,
+          "6": 0.5915,
+          "7": 0.5123
+        }
+      },
+      "vanilla_rag": {
+        "relevance": 0.6078,
+        "diversity": 0.2486,
+        "redundancy": 0.7514,
+        "source_concentration": 0.8333,
+        "cohesion": 0.7514,
+        "nugget_hit_rate": 0.25,
+        "rd_score": 0.2064,
+        "n_chunks": 6,
+        "n_clusters": 1,
+        "latency_s": 0.001
+      },
+      "deltas": {
+        "relevance": -0.0201,
+        "diversity": 0.1363,
+        "redundancy": -0.1363,
+        "source_concentration": -0.5,
+        "cohesion": -0.0417,
+        "rd_score": 0.0836
+      }
+    },
+    {
+      "query_id": "Q3",
+      "query": "Compare the memory complexity trade-offs in Longformer, Linformer, and FlashAttention against the quadratic cost of standard attention as sequence length grows.",
+      "nuggets": [
+        "linear",
+        "sparse",
+        "sliding window",
+        "tiling",
+        "quadratic",
+        "sequence length",
+        "softmax",
+        "matrix"
+      ],
+      "ac_rag": {
+        "relevance": 0.5834,
+        "diversity": 0.4078,
+        "redundancy": 0.5922,
+        "source_concentration": 0.5,
+        "cohesion": 0.7002,
+        "nugget_hit_rate": 0.5,
+        "rd_score": 0.3022,
+        "n_chunks": 6,
+        "n_clusters": 2,
+        "latency_s": 2.885,
+        "selected_clusters": [
+          6,
+          1
+        ],
+        "routing_reasoning": "These clusters provide contrasting perspectives on memory complexity in attention mechanisms, with Cluster 6 focusing on Transformer architecture, Cluster 1 on training regimes for language models, and Cluster 2 offering insights into reinforcement learning techniques.",
+        "centroid_sims": {
+          "6": 0.6995,
+          "1": 0.5811,
+          "2": 0.6019
+        }
+      },
+      "vanilla_rag": {
+        "relevance": 0.6588,
+        "diversity": 0.3161,
+        "redundancy": 0.6839,
+        "source_concentration": 1.0,
+        "cohesion": 0.6839,
+        "nugget_hit_rate": 0.75,
+        "rd_score": 0.2549,
+        "n_chunks": 6,
+        "n_clusters": 1,
+        "latency_s": 0.001
+      },
+      "deltas": {
+        "relevance": -0.0754,
+        "diversity": 0.0917,
+        "redundancy": -0.0917,
+        "source_concentration": -0.5,
+        "cohesion": 0.0163,
+        "rd_score": 0.0473
+      }
+    },
+    {
+      "query_id": "Q4",
+      "query": "How does CLIP's image-text contrastive objective differ from BERT's masked language modelling in what the learned representations capture?",
+      "nuggets": [
+        "contrastive",
+        "image",
+        "text",
+        "alignment",
+        "masked",
+        "token",
+        "prediction",
+        "bidirectional"
+      ],
+      "ac_rag": {
+        "relevance": 0.6551,
+        "diversity": 0.349,
+        "redundancy": 0.651,
+        "source_concentration": 0.5,
+        "cohesion": 0.7711,
+        "nugget_hit_rate": 0.875,
+        "rd_score": 0.2756,
+        "n_chunks": 6,
+        "n_clusters": 2,
+        "latency_s": 1.804,
+        "selected_clusters": [
+          4,
+          1
+        ],
+        "routing_reasoning": "These clusters provide contrasting perspectives on the integration of natural language supervision in training visual models, the methodologies for training language models, and innovative frameworks that enhance language model capabilities.",
+        "centroid_sims": {
+          "4": 0.6577,
+          "1": 0.5817,
+          "5": 0.5336
+        }
+      },
+      "vanilla_rag": {
+        "relevance": 0.6673,
+        "diversity": 0.3168,
+        "redundancy": 0.6832,
+        "source_concentration": 0.8333,
+        "cohesion": 0.8678,
+        "nugget_hit_rate": 0.875,
+        "rd_score": 0.256,
+        "n_chunks": 6,
+        "n_clusters": 2,
+        "latency_s": 0.001
+      },
+      "deltas": {
+        "relevance": -0.0122,
+        "diversity": 0.0322,
+        "redundancy": -0.0322,
+        "source_concentration": -0.3333,
+        "cohesion": -0.0967,
+        "rd_score": 0.0196
+      }
+    },
+    {
+      "query_id": "Q5",
+      "query": "InstructGPT applies RLHF using PPO — what properties of PPO make it suitable for language model fine-tuning, and what alignment risks does this training procedure introduce?",
+      "nuggets": [
+        "reward model",
+        "human feedback",
+        "KL divergence",
+        "alignment",
+        "clipping",
+        "policy gradient",
+        "on-policy",
+        "instability"
+      ],
+      "ac_rag": {
+        "relevance": 0.6271,
+        "diversity": 0.351,
+        "redundancy": 0.649,
+        "source_concentration": 0.4,
+        "cohesion": 0.734,
+        "nugget_hit_rate": 0.25,
+        "rd_score": 0.2742,
+        "n_chunks": 5,
+        "n_clusters": 2,
+        "latency_s": 2.752,
+        "selected_clusters": [
+          2,
+          7
+        ],
+        "routing_reasoning": "These clusters provide contrasting perspectives on the properties of PPO in reinforcement learning and the alignment risks associated with Direct Preference Optimization techniques in language models.",
+        "centroid_sims": {
+          "2": 0.5805,
+          "7": 0.6571
+        }
+      },
+      "vanilla_rag": {
+        "relevance": 0.6555,
+        "diversity": 0.3396,
+        "redundancy": 0.6604,
+        "source_concentration": 0.5,
+        "cohesion": 0.6604,
+        "nugget_hit_rate": 0.25,
+        "rd_score": 0.2697,
+        "n_chunks": 6,
+        "n_clusters": 1,
+        "latency_s": 0.001
+      },
+      "deltas": {
+        "relevance": -0.0284,
+        "diversity": 0.0114,
+        "redundancy": -0.0114,
+        "source_concentration": -0.1,
+        "cohesion": 0.0736,
+        "rd_score": 0.0045
+      }
+    },
+    {
+      "query_id": "Q6",
+      "query": "Why is pre-norm layer normalisation preferred over post-norm in deep transformers, and how does this choice interact with residual connections and gradient flow during training?",
+      "nuggets": [
+        "gradient",
+        "stability",
+        "vanishing",
+        "depth",
+        "residual",
+        "layer norm",
+        "pre-norm",
+        "post-norm"
+      ],
+      "ac_rag": {
+        "relevance": 0.5255,
+        "diversity": 0.4211,
+        "redundancy": 0.5789,
+        "source_concentration": 0.5,
+        "cohesion": 0.6548,
+        "nugget_hit_rate": 0.125,
+        "rd_score": 0.3006,
+        "n_chunks": 6,
+        "n_clusters": 2,
+        "latency_s": 3.222,
+        "selected_clusters": [
+          6,
+          2
+        ],
+        "routing_reasoning": "These clusters provide contrasting perspectives on the architectural mechanisms of transformers, advanced reinforcement learning techniques, and performance evaluation metrics, which together address the query about normalization and its effects on training dynamics.",
+        "centroid_sims": {
+          "6": 0.6093,
+          "2": 0.589,
+          "11": 0.4819
+        }
+      },
+      "vanilla_rag": {
+        "relevance": 0.6136,
+        "diversity": 0.2995,
+        "redundancy": 0.7005,
+        "source_concentration": 0.6667,
+        "cohesion": 0.8653,
+        "nugget_hit_rate": 0.25,
+        "rd_score": 0.2407,
+        "n_chunks": 6,
+        "n_clusters": 2,
+        "latency_s": 0.0
+      },
+      "deltas": {
+        "relevance": -0.0881,
+        "diversity": 0.1216,
+        "redundancy": -0.1216,
+        "source_concentration": -0.1667,
+        "cohesion": -0.2105,
+        "rd_score": 0.0599
+      }
+    },
+    {
+      "query_id": "Q7",
+      "query": "How do DINO's self-supervised vision pretraining and DreamerV2's world-model learning both exploit latent representations, and what makes their objectives structurally different?",
+      "nuggets": [
+        "self-supervised",
+        "patch",
+        "teacher",
+        "distillation",
+        "world model",
+        "latent",
+        "imagination",
+        "reconstruction"
+      ],
+      "ac_rag": {
+        "relevance": 0.5334,
+        "diversity": 0.4042,
+        "redundancy": 0.5958,
+        "source_concentration": 0.6667,
+        "cohesion": 0.8123,
+        "nugget_hit_rate": 0.125,
+        "rd_score": 0.2931,
+        "n_chunks": 3,
+        "n_clusters": 2,
+        "latency_s": 2.645,
+        "selected_clusters": [
+          2,
+          5
+        ],
+        "routing_reasoning": "These clusters provide contrasting perspectives on advanced reinforcement learning techniques and innovative frameworks for language models, which are relevant to understanding the structural differences in objectives related to latent representations.",
+        "centroid_sims": {
+          "2": 0.5672,
+          "5": 0.527
+        }
+      },
+      "vanilla_rag": {
+        "relevance": 0.5629,
+        "diversity": 0.3382,
+        "redundancy": 0.6618,
+        "source_concentration": 0.6667,
+        "cohesion": 0.9152,
+        "nugget_hit_rate": 0.25,
+        "rd_score": 0.2601,
+        "n_chunks": 6,
+        "n_clusters": 3,
+        "latency_s": 0.001
+      },
+      "deltas": {
+        "relevance": -0.0295,
+        "diversity": 0.066,
+        "redundancy": -0.066,
+        "source_concentration": 0.0,
+        "cohesion": -0.1029,
+        "rd_score": 0.033
+      }
+    }
+  ]
+}

@@ -1,0 +1,441 @@
+{
+  "profiles": {
+    "0": {
+      "cluster_id": 0,
+      "profile": {
+        "primary_theme": "Climate Change Projections and Impacts",
+        "key_entities": [
+          "Meteorological Institute’s Climate Atlas",
+          "heavy rainfall event",
+          "anthropogenic climate change",
+          "RCP2.6, RCP4.5 and RCP8.5 scenarios",
+          "ITCZ"
+        ],
+        "contrastive_edge": "While the primary theme is similar to Cluster 6 (Quantum Computing and Climate Science), this cluster focuses on traditional climate change projections and impacts rather than quantum-computed models. Unlike Cluster 11 (Reinforcement Learning in Climate Science and Robotics), it does not involve reinforcement learning or robotics.",
+        "sample_questions": [
+          "What are the projected changes in temperature for different time slices?",
+          "How does anthropogenic climate change affect monsoon rainfall?",
+          "What shifts in the ITCZ are expected under RCP2.6, RCP4.5 and RCP8.5 scenarios?"
+        ]
+      },
+      "sampled_chunk_ids": [
+        "416b8689_chunk_0008",
+        "2b3e133f_chunk_0000",
+        "e2b6e4e5_chunk_0056",
+        "2b3e133f_chunk_0026",
+        "39a8ca07_chunk_0025"
+      ],
+      "n_members": 516,
+      "avg_prob": 0.9989,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 9.07,
+        "eval_count": 237,
+        "eval_duration_s": 5.46,
+        "load_duration_ms": 37.6,
+        "parse_strategy": "direct"
+      }
+    },
+    "1": {
+      "cluster_id": 1,
+      "profile": {
+        "primary_theme": "Deep Learning Methods for Optimization Problems",
+        "key_entities": [
+          "Jose Aguilar",
+          "Gradient Descent",
+          "Levenberg-Marquardt algorithm",
+          "Feedforward Networks",
+          "Textural Features"
+        ],
+        "contrastive_edge": "While Cluster 4 focuses on graph theory applications and Cluster 11 concentrates on reinforcement learning in climate science and robotics, this cluster specifically discusses deep learning methods for solving optimization problems.",
+        "sample_questions": [
+          "What are some deep learning techniques used to solve optimization problems?",
+          "Can you explain the role of Jose Aguilar in defining an energy function for random neural networks?",
+          "How does the Levenberg-Marquardt algorithm contribute to the efficient training of feedforward networks?"
+        ]
+      },
+      "sampled_chunk_ids": [
+        "04f34ff6_chunk_0137",
+        "04f34ff6_chunk_0138",
+        "04f34ff6_chunk_0158",
+        "cb40a428_chunk_0002",
+        "850e8923_chunk_0002"
+      ],
+      "n_members": 496,
+      "avg_prob": 0.9984,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 7.41,
+        "eval_count": 188,
+        "eval_duration_s": 4.46,
+        "load_duration_ms": 68.1,
+        "parse_strategy": "direct"
+      }
+    },
+    "2": {
+      "cluster_id": 2,
+      "profile": {
+        "primary_theme": "Time-Series Data Analysis in Various Fields",
+        "key_entities": [
+          "Time-stamps",
+          "Data Points",
+          "Air Pollutants",
+          "Genomic Features",
+          "Monetary Policy Shocks"
+        ],
+        "contrastive_edge": "Unlike the adjacent clusters focusing on specific themes such as Monetary Policy and Inflation, this cluster encompasses a diverse range of time-series data analysis in fields including genomics, economics, and environmental science.",
+        "sample_questions": [
+          "What are the trends in air pollutant concentration levels over a certain period?",
+          "How do genomic features change over time?",
+          "What can be inferred about monetary policy shocks from the provided data?"
+        ]
+      },
+      "sampled_chunk_ids": [
+        "27f2fe31_chunk_0034",
+        "0bea9c1b_chunk_0101",
+        "9183d917_chunk_0022",
+        "9183d917_chunk_0081",
+        "9183d917_chunk_0093"
+      ],
+      "n_members": 398,
+      "avg_prob": 0.9979,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 7.45,
+        "eval_count": 177,
+        "eval_duration_s": 4.04,
+        "load_duration_ms": 37.2,
+        "parse_strategy": "direct"
+      }
+    },
+    "3": {
+      "cluster_id": 3,
+      "profile": {
+        "primary_theme": "Quantum Computing Ground State Observables",
+        "key_entities": [
+          "Harish J. Vallury",
+          "Lloyd C. L. Hollenberg",
+          "quantum computed moments (QCM)",
+          "qubit state",
+          "IBM machines"
+        ],
+        "contrastive_edge": "Unlike Cluster 8, this cluster focuses on estimating arbitrary ground state observables of quantum systems using the QCM method, while Cluster 8 discusses variational quantum algorithms and applications. Unlike Cluster 4, this cluster does not primarily focus on graph theory or network analysis.",
+        "sample_questions": [
+          "How can we estimate arbitrary ground state observables of a quantum system?",
+          "What is the role of the quantum computed moments (QCM) method in estimating ground state energy?",
+          "Can you explain the process of calculating expectation values for quantum algorithms?"
+        ]
+      },
+      "sampled_chunk_ids": [
+        "44468683_chunk_0000",
+        "44468683_chunk_0001",
+        "0d965e1e_chunk_0137",
+        "0d965e1e_chunk_0312",
+        "0d965e1e_chunk_0387"
+      ],
+      "n_members": 858,
+      "avg_prob": 0.9996,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 8.0,
+        "eval_count": 202,
+        "eval_duration_s": 4.81,
+        "load_duration_ms": 65.0,
+        "parse_strategy": "direct"
+      }
+    },
+    "4": {
+      "cluster_id": 4,
+      "profile": {
+        "primary_theme": "Graph Theory Applications in Transportation and Deep Learning",
+        "key_entities": [
+          "Road Network",
+          "Minimal Spanning Tree",
+          "Boruvka's Algorithm",
+          "Deep Learning",
+          "Graph Model"
+        ],
+        "contrastive_edge": "Unlike Cluster 1, which focuses on deep learning methods for optimization problems, and Cluster 11 that concentrates on reinforcement learning in climate science and robotics, this cluster centers around the application of graph theory to transportation networks and deep learning.",
+        "sample_questions": [
+          "What is a minimal spanning tree in the context of road network repair?",
+          "How can Boruvka's algorithm be used to find the minimal spanning tree for a transportation network?",
+          "Can deep learning help optimize the repair costs of a simple transportation network?"
+        ]
+      },
+      "sampled_chunk_ids": [
+        "0d965e1e_chunk_0199",
+        "0d965e1e_chunk_0203",
+        "04f34ff6_chunk_0065",
+        "9d64fb57_chunk_0025",
+        "c9a395d8_chunk_0076"
+      ],
+      "n_members": 1345,
+      "avg_prob": 0.9997,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 7.92,
+        "eval_count": 192,
+        "eval_duration_s": 4.38,
+        "load_duration_ms": 34.4,
+        "parse_strategy": "direct"
+      }
+    },
+    "5": {
+      "cluster_id": 5,
+      "profile": {
+        "primary_theme": "Gene Ontology Analysis and Evidence Codes",
+        "key_entities": [
+          "Gene Ontology",
+          "GO Primer",
+          "evidence codes",
+          "transcription factor binding sites",
+          "—"
+        ],
+        "contrastive_edge": "While Cluster 5 primarily focuses on the analysis of Gene Ontology, its nearest neighbors discuss genomic editing and CRISPR-Cas systems (Cluster 7) or reinforcement learning in climate science and robotics (Cluster 11).",
+        "sample_questions": [
+          "What are some common pitfalls, biases, and remedies in using the Gene Ontology?",
+          "How do evidence codes impact the interpretation of data from the Gene Ontology?",
+          "What is the role of transcription factor binding sites in gene ontology analysis?"
+        ]
+      },
+      "sampled_chunk_ids": [
+        "47e953fc_chunk_0000",
+        "47e953fc_chunk_0001",
+        "0bea9c1b_chunk_0056",
+        "47e953fc_chunk_0035",
+        "0bea9c1b_chunk_0096"
+      ],
+      "n_members": 455,
+      "avg_prob": 1.0,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 7.29,
+        "eval_count": 184,
+        "eval_duration_s": 4.35,
+        "load_duration_ms": 33.9,
+        "parse_strategy": "direct"
+      }
+    },
+    "6": {
+      "cluster_id": 6,
+      "profile": {
+        "primary_theme": "Quantum Computing and Quantum Information Theory",
+        "key_entities": [
+          "Quantum Gate U",
+          "Total Solar Irradiance",
+          "Millennial Climatic Oscillation",
+          "Active Amplification of Albedo",
+          "—"
+        ],
+        "contrastive_edge": "Unlike the adjacent clusters, this cluster focuses on quantum computing and its applications in various fields, while the adjacent clusters discuss climate change projections, graph theory applications, and deep learning.",
+        "sample_questions": [
+          "What is the role of Quantum Gate U in quantum computing?",
+          "How does total solar irradiance affect climate change?",
+          "Can active amplification of albedo mitigate climate change?"
+        ]
+      },
+      "sampled_chunk_ids": [
+        "44468683_chunk_0013",
+        "58feffbd_chunk_0019",
+        "eea999c9_chunk_0151",
+        "eea999c9_chunk_0024",
+        "dc22fd8f_chunk_0063"
+      ],
+      "n_members": 443,
+      "avg_prob": 0.9993,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 7.31,
+        "eval_count": 165,
+        "eval_duration_s": 3.73,
+        "load_duration_ms": 36.0,
+        "parse_strategy": "direct"
+      }
+    },
+    "7": {
+      "cluster_id": 7,
+      "profile": {
+        "primary_theme": "Genome Editing and CRISPR-Cas Systems",
+        "key_entities": [
+          "CRISPR SWAPnDROP",
+          "genome editing",
+          "NHEJ-related genes",
+          "CRISPR-Cas systems",
+          "DNA repair pathways"
+        ],
+        "contrastive_edge": "While Cluster 7 primarily focuses on specific methods and applications of genome editing using CRISPR SWAPnDROP, its nearest neighbors discuss broader topics such as Gene Ontology Analysis (Cluster 5) and Reinforcement Learning in Climate Science and Robotics (Cluster 11).",
+        "sample_questions": [
+          "How does CRISPR SWAPnDROP function for genome editing?",
+          "What role do NHEJ-related genes play in CRISPR-Cas systems?",
+          "Can CRISPR-based antimicrobials be effectively applied to bacteria?"
+        ]
+      },
+      "sampled_chunk_ids": [
+        "39a8ca07_chunk_0086",
+        "9ed20f0d_chunk_0000",
+        "9ed20f0d_chunk_0035",
+        "72e7c0b4_chunk_0037",
+        "72e7c0b4_chunk_0072"
+      ],
+      "n_members": 494,
+      "avg_prob": 1.0,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 7.99,
+        "eval_count": 213,
+        "eval_duration_s": 5.0,
+        "load_duration_ms": 37.6,
+        "parse_strategy": "direct"
+      }
+    },
+    "8": {
+      "cluster_id": 8,
+      "profile": {
+        "primary_theme": "Quantum Computing in Trapped Ions",
+        "key_entities": [
+          "Rydberg-interacting qubits",
+          "many-body quantum dynamics",
+          "disipative quantum error correction",
+          "trapped ions",
+          "Kibble-Zurek mechanism"
+        ],
+        "contrastive_edge": "Unlike Cluster 3, which focuses on ground state observables, this cluster primarily discusses the use of trapped ions for quantum simulation and computing. Unlike Cluster 4, it does not involve graph theory applications.",
+        "sample_questions": [
+          "What are some experiments performed with Rydberg-interacting qubits?",
+          "Can you explain the Kibble-Zurek mechanism in the context of trapped ions?",
+          "What is disipative quantum error correction and its application to quantum sensing with trapped ions?"
+        ]
+      },
+      "sampled_chunk_ids": [
+        "44468683_chunk_0025",
+        "44468683_chunk_0026",
+        "cb6f0604_chunk_0157",
+        "cb6f0604_chunk_0307",
+        "810d50ee_chunk_0334"
+      ],
+      "n_members": 669,
+      "avg_prob": 0.9932,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 8.33,
+        "eval_count": 200,
+        "eval_duration_s": 4.55,
+        "load_duration_ms": 37.7,
+        "parse_strategy": "direct"
+      }
+    },
+    "9": {
+      "cluster_id": 9,
+      "profile": {
+        "primary_theme": "Evaluation of Agreement and Disagreement in Text Classification",
+        "key_entities": [
+          "Kappa Coefficient",
+          "Agreement Level",
+          "Activation Functions",
+          "Monetary Policy Shocks",
+          "Inflation Targeting"
+        ],
+        "contrastive_edge": "While adjacent clusters focus on specific themes such as Monetary Policy and Inflation or Time-Series Data Analysis, this cluster primarily evaluates the agreement and disagreement in text classification using Kappa coefficients, which is not a primary focus of the other clusters.",
+        "sample_questions": [
+          "What is the level of agreement between different classifiers on a given dataset?",
+          "How can Kappa's value be interpreted in terms of agreement level?",
+          "What activation functions are best for modeling demand to price relationships?"
+        ]
+      },
+      "sampled_chunk_ids": [
+        "05ea0aaa_chunk_0039",
+        "850e8923_chunk_0037",
+        "810d50ee_chunk_0135",
+        "9183d917_chunk_0121",
+        "810d50ee_chunk_0051"
+      ],
+      "n_members": 546,
+      "avg_prob": 0.9997,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 7.18,
+        "eval_count": 185,
+        "eval_duration_s": 4.34,
+        "load_duration_ms": 52.7,
+        "parse_strategy": "direct"
+      }
+    },
+    "10": {
+      "cluster_id": 10,
+      "profile": {
+        "primary_theme": "Monetary Policy and Inflation Attention",
+        "key_entities": [
+          "Monetary Policy Shocks",
+          "Inflation",
+          "Attention",
+          "GDP Deflator",
+          "Representative Agent"
+        ],
+        "contrastive_edge": "While adjacent clusters focus on specific themes such as Monetary Policy and Inflation or Time-Series Data Analysis, this cluster specifically investigates the relationship between attention to inflation and its volatility and persistence in various data sets.",
+        "sample_questions": [
+          "What is the relationship between attention to inflation and its volatility?",
+          "How does attention to inflation change over time?",
+          "Which data sets were used to study the attention to inflation?"
+        ]
+      },
+      "sampled_chunk_ids": [
+        "b2531400_chunk_0040",
+        "b49cbfbf_chunk_0000",
+        "b49cbfbf_chunk_0156",
+        "b49cbfbf_chunk_0030",
+        "1a69e7d2_chunk_0002"
+      ],
+      "n_members": 266,
+      "avg_prob": 0.9999,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 6.91,
+        "eval_count": 167,
+        "eval_duration_s": 3.76,
+        "load_duration_ms": 36.1,
+        "parse_strategy": "direct"
+      }
+    },
+    "11": {
+      "cluster_id": 11,
+      "profile": {
+        "primary_theme": "Reinforcement Learning in Climate Science",
+        "key_entities": [
+          "Markov Decision Process",
+          "Gymnasium",
+          "Policy Gradient Algorithms",
+          "Sparse Rewards",
+          "Compositional Task Policies"
+        ],
+        "contrastive_edge": "Unlike the adjacent clusters focusing on graph theory applications and deep learning methods for optimization problems, this cluster concentrates on reinforcement learning in climate science. Unlike other reinforcement learning clusters, it also focuses on sparse rewards and compositional task policies.",
+        "sample_questions": [
+          "What is the role of reinforcement learning in climate adaptation?",
+          "How do sparse rewards affect the performance of reinforcement learning algorithms in climate science?",
+          "Can compositional methods generalize to unseen tasks in offline reinforcement learning for climate adaptation?"
+        ]
+      },
+      "sampled_chunk_ids": [
+        "416b8689_chunk_0035",
+        "416b8689_chunk_0036",
+        "92a1c8b4_chunk_0050",
+        "79f535f2_chunk_0031",
+        "0e848c76_chunk_0002"
+      ],
+      "n_members": 708,
+      "avg_prob": 0.9996,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 7.25,
+        "eval_count": 190,
+        "eval_duration_s": 4.48,
+        "load_duration_ms": 37.4,
+        "parse_strategy": "direct"
+      }
+    }
+  },
+  "errors": {},
+  "n_clusters": 12,
+  "model": "mistral:latest",
+  "timestamp": "2026-04-05T05:51:03",
+  "total_time_s": 184.43
+}

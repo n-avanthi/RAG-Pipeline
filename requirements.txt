@@ -1,0 +1,37 @@
+requests
+
+# Web framework
+flask
+flask-cors
+
+# Validation
+pydantic
+
+# LangChain
+langchain
+langchain-community
+langchain-text-splitters
+
+# Document loading (PyMuPDF removed)
+pypdf
+
+# Embeddings
+sentence-transformers
+torch
+
+# Vector store
+faiss-cpu
+
+# ML utils
+umap-learn
+scikit-learn
+
+# Data
+numpy
+joblib
+
+# HTTP
+requests
+
+# Utils
+tqdm

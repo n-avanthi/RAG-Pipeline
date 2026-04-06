@@ -1,0 +1,167 @@
+{
+  "timestamp": "2026-04-05T05:43:51",
+  "corpus_stats": {
+    "total_chunks": 7194,
+    "source_docs": [
+      "climate_science_ACE_ A fast_ skillful learned global atmospheric model for c.pdf",
+      "climate_science_Active Amplification of the Terrestrial Albedo to Mitigate C.pdf",
+      "climate_science_ClimaText_ A Dataset for Climate Change Topic Detection.pdf",
+      "climate_science_Climate Adaptation with Reinforcement Learning_ Experiments .pdf",
+      "climate_science_Future Climate Change Projections over the Indian Region.pdf",
+      "climate_science_Impact of anthropogenic climate change on the East Asian sum.pdf",
+      "climate_science_Invasive species_ extreme fire risk_ and toxin release under.pdf",
+      "climate_science_Precipitation extremes under climate change.pdf",
+      "climate_science_Solar and planetary oscillation control on climate change_ h.pdf",
+      "climate_science_Zonally opposing shifts of the intertropical convergence zon.pdf",
+      "deep_learning_A Learning Framework for n-bit Quantized Neural Networks tow.pdf",
+      "deep_learning_A Tutorial about Random Neural Networks in Supervised Learni.pdf",
+      "deep_learning_Deep Learning and Computational Physics _Lecture Notes_.pdf",
+      "deep_learning_Deep learning observables in computational fluid dynamics.pdf",
+      "deep_learning_Dual Accuracy-Quality-Driven Neural Network for Prediction I.pdf",
+      "deep_learning_Learn to Accumulate Evidence from All Training Samples_ Theo.pdf",
+      "deep_learning_Memorization in Deep Neural Networks_ Does the Loss Function.pdf",
+      "deep_learning_Monodense Deep Neural Model for Determining Item Price Elast.pdf",
+      "deep_learning_On the approximation of rough functions with deep neural net.pdf",
+      "deep_learning_Predicting concentration levels of air pollutants by transfe.pdf",
+      "deep_learning_ScreenerNet_ Learning Self-Paced Curriculum for Deep Neural .pdf",
+      "deep_learning_The Modern Mathematics of Deep Learning.pdf",
+      "economics_finance_An Analysis of Monetary Policy Evidence and Theory through M.pdf",
+      "economics_finance_Assessing the Effects of Monetary Shocks on Macroeconomic St.pdf",
+      "economics_finance_Bayesian state-space modeling for analyzing heterogeneous ne.pdf",
+      "economics_finance_Explainable Machine Learning for Public Policy_ Use Cases_ G.pdf",
+      "economics_finance_Inflation -- who cares_ Monetary Policy in Times of Low Atte.pdf",
+      "economics_finance_Macroeconomic Effects of Inflation Targeting_ A Survey of th.pdf",
+      "economics_finance_Measuring the Effectiveness of US Monetary Policy during the.pdf",
+      "economics_finance_Reinforcement Learning for Monetary Policy Under Macroeconom.pdf",
+      "economics_finance_The role of the _Maximizing Output Growth Inflation Rate_ in.pdf",
+      "economics_finance_Time-Varying Identification of Monetary Policy Shocks.pdf",
+      "genomics_biology_CRISPR SWAPnDROP -- A multifunctional system for genome edit.pdf",
+      "genomics_biology_Gene Ontology_ Pitfalls_ Biases_ Remedies.pdf",
+      "genomics_biology_Investigating the genomic background of CRISPR-Cas genomes f.pdf",
+      "genomics_biology_Leveraging State Space Models in Long Range Genomics.pdf",
+      "genomics_biology_Predicting discovery rates of genomic features.pdf",
+      "genomics_biology_Primer on the Gene Ontology.pdf",
+      "genomics_biology_Prokaryotic genome editing based on the subtype I-B-Svi CRIS.pdf",
+      "genomics_biology_The Chills and Thrills of Whole Genome Sequencing.pdf",
+      "genomics_biology_Virtual in situs_ Sequencing mRNA from cryo-sliced Drosophil.pdf",
+      "genomics_biology_When repeats drive the vocabulary_ a Byte-Pair Encoding anal.pdf",
+      "quantum_computing_Arbitrary Ground State Observables from Quantum Computed Mom.pdf",
+      "quantum_computing_Entangling Disciplines_ Causality_ Entropy and Time-Travel P.pdf",
+      "quantum_computing_Mini-maximizing two qubit quantum computations.pdf",
+      "quantum_computing_Quantum Algorithm Implementations for Beginners.pdf",
+      "quantum_computing_Quantum Computing in the NISQ era and beyond.pdf",
+      "quantum_computing_Quantum Computing_ Vision and Challenges.pdf",
+      "quantum_computing_Quantum computing and information extraction for a dynamical.pdf",
+      "quantum_computing_Quantum computing online workshops and hackathon for Spanish.pdf",
+      "quantum_computing_Quantum simulation and computing with Rydberg-interacting qu.pdf",
+      "quantum_computing_Strengths and Weaknesses of Quantum Computing.pdf",
+      "quantum_computing_Tianyan_ Cloud services with quantum advantage.pdf",
+      "quantum_computing_Tierkreis_ A Dataflow Framework for Hybrid Quantum-Classical.pdf",
+      "robotics_Adaptive Control of Robot Manipulators With Uncertain Kinema.pdf",
+      "robotics_Continuous-Discrete Reinforcement Learning for Hybrid Contro.pdf",
+      "robotics_Data-Efficient Deep Reinforcement Learning for Attitude Cont.pdf",
+      "robotics_Deep Reinforcement Learning for Decentralized Multi-Robot Co.pdf",
+      "robotics_Improving Input-Output Linearizing Controllers for Bipedal R.pdf",
+      "robotics_One-Shot Reinforcement Learning for Robot Navigation with In.pdf",
+      "robotics_Reinforcement Learning Controllers for Soft Robots using Lea.pdf",
+      "robotics_Robotic Manipulation Datasets for Offline Compositional Rein.pdf",
+      "robotics_Self-Supervised Learning of Multi-Object Keypoints for Robot.pdf",
+      "robotics_Value Bonuses using Ensemble Errors for Exploration in Reinf.pdf"
+    ],
+    "n_source_docs": 64,
+    "bridge_chunks": 9,
+    "bridge_pct": 0.13
+  },
+  "cluster_stats": {
+    "n_clusters": 12,
+    "cluster_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "sizes": {
+      "0": 516,
+      "1": 496,
+      "2": 398,
+      "3": 858,
+      "4": 1345,
+      "5": 455,
+      "6": 443,
+      "7": 494,
+      "8": 669,
+      "9": 546,
+      "10": 266,
+      "11": 708
+    }
+  },
+  "embedding_stats": {
+    "dim_original": 1024,
+    "dim_reduced": 5,
+    "hnsw_vectors": 7194,
+    "hnsw_ef_search": 64
+  },
+  "artefacts": {
+    "chunks_json": {
+      "exists": true,
+      "size_mb": 6.4116,
+      "path": "/content/drive/MyDrive/RAG/AC_RAG/chunks.json"
+    },
+    "embeddings_npy": {
+      "exists": true,
+      "size_mb": 28.1017,
+      "path": "/content/drive/MyDrive/RAG/AC_RAG/embeddings.npy"
+    },
+    "embeddings_metadata": {
+      "exists": true,
+      "size_mb": 6.5409,
+      "path": "/content/drive/MyDrive/RAG/AC_RAG/embedding_metadata.json"
+    },
+    "embeddings_5d_npy": {
+      "exists": true,
+      "size_mb": 0.1373,
+      "path": "/content/drive/MyDrive/RAG/AC_RAG/embeddings_5d.npy"
+    },
+    "hnsw_index": {
+      "exists": true,
+      "size_mb": 29.9658,
+      "path": "/content/drive/MyDrive/RAG/AC_RAG/ac_rag_hnsw.index"
+    },
+    "gmm_model": {
+      "exists": true,
+      "size_mb": 0.0084,
+      "path": "/content/drive/MyDrive/RAG/AC_RAG/gmm_model.joblib"
+    },
+    "gmm_scaler": {
+      "exists": true,
+      "size_mb": 0.0007,
+      "path": "/content/drive/MyDrive/RAG/AC_RAG/gmm_scaler.joblib"
+    },
+    "cluster_assignments": {
+      "exists": true,
+      "size_mb": 8.9323,
+      "path": "/content/drive/MyDrive/RAG/AC_RAG/cluster_assignments.json"
+    },
+    "enriched_metadata": {
+      "exists": true,
+      "size_mb": 9.1803,
+      "path": "/content/drive/MyDrive/RAG/AC_RAG/final_enriched_metadata.json"
+    }
+  },
+  "interface": {
+    "primary_input": "/content/drive/MyDrive/RAG/AC_RAG/final_enriched_metadata.json",
+    "index_input": "/content/drive/MyDrive/RAG/AC_RAG/ac_rag_hnsw.index",
+    "gmm_input": "/content/drive/MyDrive/RAG/AC_RAG/gmm_model.joblib",
+    "scaler_input": "/content/drive/MyDrive/RAG/AC_RAG/gmm_scaler.joblib",
+    "embeddings_input": "/content/drive/MyDrive/RAG/AC_RAG/embeddings.npy",
+    "contract": "Loads final_enriched_metadata.json. Each record exposes cluster_ids (list), primary_cluster (int), is_bridge_chunk (bool), and full_probabilities (dict) for contrastive LLM profiling via Ollama."
+  }
+}

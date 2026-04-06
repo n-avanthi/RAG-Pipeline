@@ -1,0 +1,381 @@
+{
+  "profiles": {
+    "0": {
+      "cluster_id": 0,
+      "profile": {
+        "primary_theme": "Training and Optimization Techniques",
+        "key_entities": [
+          "Adam optimizer",
+          "learning rate",
+          "regularization",
+          "training steps",
+          "fine-tuning"
+        ],
+        "contrastive_edge": "This cluster emphasizes the methodologies and strategies used for training machine learning models, including specific optimizers and their configurations. In contrast, the adjacent clusters focus on architectural aspects of Transformers and the application of natural language supervision in image classification."
+      },
+      "sampled_chunk_ids": [
+        "attention_is_all_you_need_chunk_0045",
+        "attention_is_all_you_need_chunk_0046",
+        "dino_chunk_0085",
+        "dino_chunk_0008",
+        "vit_chunk_0036",
+        "vit_chunk_0007",
+        "flashattention_chunk_0019"
+      ],
+      "n_members": 276,
+      "avg_prob": 0.992,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 2.82,
+        "prompt_tokens": 1401,
+        "completion_tokens": 91
+      }
+    },
+    "1": {
+      "cluster_id": 1,
+      "profile": {
+        "primary_theme": "Training Regimes for Language Models",
+        "key_entities": [
+          "WMT 2014",
+          "English-German",
+          "English-French",
+          "BERT",
+          "GPT-3"
+        ],
+        "contrastive_edge": "This cluster focuses on the methodologies and datasets used for training language models, emphasizing the technical aspects of data preparation and model training. In contrast, the adjacent clusters explore themes related to the origins of state names and self-reflective generation techniques, which are less focused on the training processes themselves."
+      },
+      "sampled_chunk_ids": [
+        "attention_is_all_you_need_chunk_0043",
+        "attention_is_all_you_need_chunk_0044",
+        "bert_chunk_0041",
+        "gpt3_chunk_0102",
+        "flashattention_chunk_0041",
+        "flashattention_chunk_0178",
+        "gpt3_chunk_0209"
+      ],
+      "n_members": 600,
+      "avg_prob": 0.9927,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 2.46,
+        "prompt_tokens": 1293,
+        "completion_tokens": 111
+      }
+    },
+    "2": {
+      "cluster_id": 2,
+      "profile": {
+        "primary_theme": "Reinforcement Learning Policy Optimization",
+        "key_entities": [
+          "PPO",
+          "SAC",
+          "TD3",
+          "Deep Learning",
+          "Continuous Control"
+        ],
+        "contrastive_edge": "This cluster focuses on advanced reinforcement learning techniques, specifically policy optimization methods like Proximal Policy Optimization and Soft Actor-Critic, which are designed for continuous action spaces. In contrast, the adjacent clusters emphasize preference optimization techniques and the Adam optimization algorithm, which are not specifically centered on reinforcement learning policies."
+      },
+      "sampled_chunk_ids": [
+        "ddpg_chunk_0001",
+        "ddpg_chunk_0002",
+        "dreamer_v2_chunk_0028",
+        "dreamer_v2_chunk_0079",
+        "dreamer_v2_chunk_0084",
+        "ppo_chunk_0006",
+        "ppo_chunk_0011"
+      ],
+      "n_members": 223,
+      "avg_prob": 1.0,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 1.85,
+        "prompt_tokens": 1331,
+        "completion_tokens": 106
+      }
+    },
+    "3": {
+      "cluster_id": 3,
+      "profile": {
+        "primary_theme": "Research References and Citations",
+        "key_entities": [
+          "arXiv",
+          "Neural computation",
+          "deep learning",
+          "dialogue generation",
+          "policy gradient methods"
+        ],
+        "contrastive_edge": "This cluster is primarily focused on the compilation and citation of research papers and references relevant to various machine learning topics. In contrast, the adjacent clusters emphasize specific training techniques and regimes rather than the documentation of prior work."
+      },
+      "sampled_chunk_ids": [
+        "adam_chunk_0008",
+        "adam_chunk_0067",
+        "dreamer_v2_chunk_0070",
+        "instructgpt_chunk_0173",
+        "linformer_chunk_0223",
+        "dreamer_v2_chunk_0055",
+        "clip_chunk_0296"
+      ],
+      "n_members": 654,
+      "avg_prob": 1.0,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 1.62,
+        "prompt_tokens": 1443,
+        "completion_tokens": 92
+      }
+    },
+    "4": {
+      "cluster_id": 4,
+      "profile": {
+        "primary_theme": "Natural Language Supervision in Training",
+        "key_entities": [
+          "CLIP",
+          "image classification",
+          "natural language",
+          "zero-shot learning",
+          "few-shot learning"
+        ],
+        "contrastive_edge": "This cluster is distinct as it focuses on the integration of natural language supervision in training visual models, specifically through the CLIP framework. In contrast, the adjacent clusters emphasize traditional training techniques and regimes for language models without the specific application to visual data."
+      },
+      "sampled_chunk_ids": [
+        "clip_chunk_0017",
+        "clip_chunk_0018",
+        "clip_chunk_0159",
+        "clip_chunk_0411",
+        "clip_chunk_0092",
+        "clip_chunk_0223",
+        "clip_chunk_0132"
+      ],
+      "n_members": 325,
+      "avg_prob": 0.9929,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 2.53,
+        "prompt_tokens": 1375,
+        "completion_tokens": 98
+      }
+    },
+    "5": {
+      "cluster_id": 5,
+      "profile": {
+        "primary_theme": "Self-Reflective Retrieval-Augmented Generation",
+        "key_entities": [
+          "SELF-RAG",
+          "Retrieval-Augmented Generation",
+          "large language models",
+          "self-reflection",
+          "factual accuracy"
+        ],
+        "contrastive_edge": "This cluster focuses on the innovative framework of Self-Reflective Retrieval-Augmented Generation, which enhances the capabilities of language models through self-reflection and adaptive retrieval mechanisms. In contrast, the adjacent clusters emphasize the origins of US state names and training methodologies for language models, lacking the self-reflective aspect of knowledge retrieval."
+      },
+      "sampled_chunk_ids": [
+        "corrective_rag_chunk_0000",
+        "corrective_rag_chunk_0001",
+        "corrective_rag_chunk_0150",
+        "corrective_rag_chunk_0021",
+        "corrective_rag_chunk_0206",
+        "rag_original_chunk_0030",
+        "rag_original_chunk_0004"
+      ],
+      "n_members": 211,
+      "avg_prob": 1.0,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 2.46,
+        "prompt_tokens": 1258,
+        "completion_tokens": 120
+      }
+    },
+    "6": {
+      "cluster_id": 6,
+      "profile": {
+        "primary_theme": "Transformer Architecture and Mechanisms",
+        "key_entities": [
+          "Transformer",
+          "self-attention",
+          "multi-head attention",
+          "positional encoding",
+          "feed-forward network"
+        ],
+        "contrastive_edge": "This cluster focuses on the architectural components and mechanisms of Transformer models, emphasizing self-attention and multi-head attention. In contrast, the adjacent clusters concentrate on training methodologies and the specifics of the Adam optimization algorithm."
+      },
+      "sampled_chunk_ids": [
+        "attention_is_all_you_need_chunk_0008",
+        "attention_is_all_you_need_chunk_0011",
+        "linformer_chunk_0014",
+        "linformer_chunk_0162",
+        "linformer_chunk_0054",
+        "linformer_chunk_0016",
+        "attention_is_all_you_need_chunk_0030"
+      ],
+      "n_members": 390,
+      "avg_prob": 0.9933,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 3.18,
+        "prompt_tokens": 1253,
+        "completion_tokens": 90
+      }
+    },
+    "7": {
+      "cluster_id": 7,
+      "profile": {
+        "primary_theme": "Direct Preference Optimization Techniques",
+        "key_entities": [
+          "language model",
+          "reward model",
+          "reinforcement learning",
+          "human feedback",
+          "policy network"
+        ],
+        "contrastive_edge": "This cluster focuses on the methodologies and theoretical foundations of Direct Preference Optimization in language models, emphasizing the alignment of model behavior with human preferences through reinforcement learning techniques. In contrast, the adjacent clusters explore topics such as self-reflective generation and the etymology of US state names, which do not directly address optimization strategies for language models."
+      },
+      "sampled_chunk_ids": [
+        "direct_preference_optimization_chunk_0000",
+        "direct_preference_optimization_chunk_0001",
+        "direct_preference_optimization_chunk_0028",
+        "direct_preference_optimization_chunk_0139",
+        "direct_preference_optimization_chunk_0156",
+        "direct_preference_optimization_chunk_0039",
+        "direct_preference_optimization_chunk_0133"
+      ],
+      "n_members": 236,
+      "avg_prob": 0.9873,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 2.2,
+        "prompt_tokens": 1422,
+        "completion_tokens": 113
+      }
+    },
+    "8": {
+      "cluster_id": 8,
+      "profile": {
+        "primary_theme": "Stochastic Weight Averaging Techniques",
+        "key_entities": [
+          "Stochastic Weight Averaging",
+          "SGD",
+          "generalization",
+          "learning rate",
+          "deep learning"
+        ],
+        "contrastive_edge": "This cluster focuses on the Stochastic Weight Averaging (SWA) method, which emphasizes averaging weights during training to achieve better generalization in deep learning models. In contrast, the adjacent clusters concentrate on specific optimization algorithms like Adam and reinforcement learning policy optimization techniques, which do not primarily address weight averaging strategies."
+      },
+      "sampled_chunk_ids": [
+        "cyclical_lr_chunk_0000",
+        "cyclical_lr_chunk_0001",
+        "cyclical_lr_chunk_0065",
+        "cyclical_lr_chunk_0036",
+        "cyclical_lr_chunk_0048",
+        "cyclical_lr_chunk_0092",
+        "cyclical_lr_chunk_0033"
+      ],
+      "n_members": 88,
+      "avg_prob": 1.0,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 3.03,
+        "prompt_tokens": 1381,
+        "completion_tokens": 111
+      }
+    },
+    "9": {
+      "cluster_id": 9,
+      "profile": {
+        "primary_theme": "Stochastic Optimization Algorithm Development",
+        "key_entities": [
+          "Adam",
+          "stochastic optimization",
+          "gradient-based optimization",
+          "hyper-parameters",
+          "non-convex optimization"
+        ],
+        "contrastive_edge": "This cluster is centered on the development and analysis of the Adam optimization algorithm, which is specifically designed for stochastic optimization tasks. In contrast, the adjacent clusters focus on techniques like Stochastic Weight Averaging and architectural mechanisms of Transformers, rather than the foundational algorithms for optimization."
+      },
+      "sampled_chunk_ids": [
+        "adam_chunk_0000",
+        "adam_chunk_0001",
+        "adam_chunk_0066",
+        "longformer_chunk_0027",
+        "layer_norm_chunk_0038",
+        "layer_norm_chunk_0054",
+        "adam_chunk_0045"
+      ],
+      "n_members": 233,
+      "avg_prob": 0.9943,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 3.22,
+        "prompt_tokens": 1538,
+        "completion_tokens": 104
+      }
+    },
+    "10": {
+      "cluster_id": 10,
+      "profile": {
+        "primary_theme": "Naming Origins of US States",
+        "key_entities": [
+          "California",
+          "Texas",
+          "Utah",
+          "Native American",
+          "Christopher Columbus"
+        ],
+        "contrastive_edge": "This cluster focuses on the historical and cultural origins of US state names, highlighting the diverse influences behind them. In contrast, the adjacent clusters emphasize methodologies for training language models and the framework of Self-Reflective Retrieval-Augmented Generation."
+      },
+      "sampled_chunk_ids": [
+        "corrective_rag_chunk_0008",
+        "corrective_rag_chunk_0009",
+        "instructgpt_chunk_0241",
+        "self_rag_chunk_0004",
+        "self_rag_chunk_0084",
+        "self_rag_chunk_0083",
+        "direct_preference_optimization_chunk_0184"
+      ],
+      "n_members": 486,
+      "avg_prob": 0.9874,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 2.77,
+        "prompt_tokens": 1304,
+        "completion_tokens": 90
+      }
+    },
+    "11": {
+      "cluster_id": 11,
+      "profile": {
+        "primary_theme": "Performance Metrics and Evaluations",
+        "key_entities": [
+          "accuracy",
+          "few-shot",
+          "zero-shot",
+          "beam search",
+          "positional embedding"
+        ],
+        "contrastive_edge": "This cluster is centered around the evaluation metrics and performance assessments of various models, contrasting with the training methodologies emphasized in Cluster 1. Unlike Cluster 7, which focuses on optimization techniques, this cluster prioritizes the analysis of model outputs and their effectiveness in specific tasks."
+      },
+      "sampled_chunk_ids": [
+        "attention_is_all_you_need_chunk_0055",
+        "clip_chunk_0364",
+        "gpt3_chunk_0215",
+        "instructgpt_chunk_0326",
+        "ppo_chunk_0053",
+        "layer_norm_chunk_0055",
+        "ppo_chunk_0055"
+      ],
+      "n_members": 76,
+      "avg_prob": 1.0,
+      "llm_meta": {
+        "attempt": 1,
+        "elapsed_s": 3.07,
+        "prompt_tokens": 2081,
+        "completion_tokens": 99
+      }
+    }
+  },
+  "errors": {},
+  "n_clusters": 12,
+  "model": "gpt-4o-mini",
+  "timestamp": "2026-04-05T21:56:25",
+  "total_time_s": 63.15
+}

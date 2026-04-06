@@ -1,0 +1,23 @@
+Q1 — Cross-cluster synthesis (RL + Optimization):
+
+"How do PPO's clipping objective and the Adam optimizer's adaptive learning rates together address training instability, and what are their respective failure modes?"
+
+Q2 — Bridge chunk exploitation (RAG papers + Transformers):
+
+"What retrieval mechanisms do RAG, Self-RAG, and standard transformer attention have in common, and where do their approaches fundamentally diverge?"
+
+Q3 — Minority cluster protection (Efficient Attention):
+
+"Compare the memory complexity trade-offs made by Longformer, Linformer, and FlashAttention when scaling to long sequences."
+
+Q4 — Contrastive edge (Vision vs Transformers):
+
+"How does CLIP's contrastive pretraining objective differ fundamentally from BERT's masked language modeling, and what does each approach optimize the representation for?"
+
+Q5 — Multi-hop reasoning (RLHF + RL fundamentals):
+
+"InstructGPT uses RLHF with PPO — what specific properties of PPO make it suitable for fine-tuning language models, and what risks does this introduce?"
+
+Q6 — Subtle disambiguation (Layer Norm + Attention):
+
+"Why is layer normalization placed differently in the original Transformer versus later variants like GPT, and how does this interact with training stability?"

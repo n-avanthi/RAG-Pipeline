@@ -1,0 +1,534 @@
+{
+  "individual_results": [
+    {
+      "query_index": 1,
+      "query": "How do energy efficiency constraints affect both quantum computing hardware and deep learning model training?",
+      "selected_clusters": [
+        0,
+        3
+      ],
+      "cluster_themes": {
+        "0": "Climate Change Projections and Impacts",
+        "3": "Quantum Computing Ground State Observables"
+      },
+      "total_chunks": 5,
+      "metrics": {
+        "diversity_score": 0.3382,
+        "relevance_score": 0.6067,
+        "source_concentration": 0.4,
+        "cluster_coverage": 0.1667,
+        "intra_cluster_cohesion": 0.8489,
+        "routing_alignment": 0.5433
+      },
+      "latency": {
+        "routing_s": 3.43,
+        "retrieval_ms": 40.2
+      },
+      "cluster_breakdown": {
+        "0": {
+          "theme": "Climate Change Projections and Impacts",
+          "n_chunks": 1,
+          "source_docs": [
+            "climate_science_ACE_ A fast_ skillful learned global atmospheric model for c.pdf"
+          ],
+          "avg_primary_prob": 0.995
+        },
+        "3": {
+          "theme": "Quantum Computing Ground State Observables",
+          "n_chunks": 4,
+          "source_docs": [
+            "quantum_computing_Quantum Computing in the NISQ era and beyond.pdf",
+            "quantum_computing_Entangling Disciplines_ Causality_ Entropy and Time-Travel P.pdf",
+            "quantum_computing_Quantum Computing_ Vision and Challenges.pdf"
+          ],
+          "avg_primary_prob": 1.0
+        }
+      },
+      "routing_reasoning": "Cluster 0 provides insights into climate change projections and impacts, which can help understand the energy efficiency constraints in quantum computing hardware due to its focus on anthropogenic climate change. Cluster 3 focuses on estimating arbitrary ground state observables of quantum systems using the QCM method, which can provide a deeper understanding of energy efficiency constraints in quantum computing hardware.",
+      "timestamp": "2026-04-05T05:51:47"
+    },
+    {
+      "query_index": 2,
+      "query": "What role does data scarcity play in genomics research and reinforcement learning for robotics?",
+      "selected_clusters": [
+        1,
+        5
+      ],
+      "cluster_themes": {
+        "1": "Deep Learning Methods for Optimization Problems",
+        "5": "Gene Ontology Analysis and Evidence Codes"
+      },
+      "total_chunks": 6,
+      "metrics": {
+        "diversity_score": 0.4278,
+        "relevance_score": 0.502,
+        "source_concentration": 0.3333,
+        "cluster_coverage": 0.1667,
+        "intra_cluster_cohesion": 0.5497,
+        "routing_alignment": 0.5453
+      },
+      "latency": {
+        "routing_s": 5.65,
+        "retrieval_ms": 40.7
+      },
+      "cluster_breakdown": {
+        "1": {
+          "theme": "Deep Learning Methods for Optimization Problems",
+          "n_chunks": 2,
+          "source_docs": [
+            "genomics_biology_Investigating the genomic background of CRISPR-Cas genomes f.pdf",
+            "economics_finance_Explainable Machine Learning for Public Policy_ Use Cases_ G.pdf"
+          ],
+          "avg_primary_prob": 1.0
+        },
+        "5": {
+          "theme": "Gene Ontology Analysis and Evidence Codes",
+          "n_chunks": 4,
+          "source_docs": [
+            "genomics_biology_When repeats drive the vocabulary_ a Byte-Pair Encoding anal.pdf",
+            "genomics_biology_Predicting discovery rates of genomic features.pdf",
+            "genomics_biology_The Chills and Thrills of Whole Genome Sequencing.pdf"
+          ],
+          "avg_primary_prob": 1.0
+        }
+      },
+      "routing_reasoning": "Cluster 1 provides insights into deep learning methods for optimization problems, which may help address data scarcity in genomics research. Cluster 5 focuses on Gene Ontology Analysis and Evidence Codes, offering perspectives on genomic data analysis that could be relevant to the user's query.",
+      "timestamp": "2026-04-05T05:51:53"
+    },
+    {
+      "query_index": 3,
+      "query": "How are climate change projections influencing economic policy decisions?",
+      "selected_clusters": [
+        0,
+        2
+      ],
+      "cluster_themes": {
+        "0": "Climate Change Projections and Impacts",
+        "2": "Time-Series Data Analysis in Various Fields"
+      },
+      "total_chunks": 8,
+      "metrics": {
+        "diversity_score": 0.4128,
+        "relevance_score": 0.5875,
+        "source_concentration": 0.375,
+        "cluster_coverage": 0.1667,
+        "intra_cluster_cohesion": 0.6978,
+        "routing_alignment": 0.6169
+      },
+      "latency": {
+        "routing_s": 6.14,
+        "retrieval_ms": 42.4
+      },
+      "cluster_breakdown": {
+        "0": {
+          "theme": "Climate Change Projections and Impacts",
+          "n_chunks": 4,
+          "source_docs": [
+            "climate_science_Future Climate Change Projections over the Indian Region.pdf",
+            "climate_science_Zonally opposing shifts of the intertropical convergence zon.pdf"
+          ],
+          "avg_primary_prob": 1.0
+        },
+        "2": {
+          "theme": "Time-Series Data Analysis in Various Fields",
+          "n_chunks": 4,
+          "source_docs": [
+            "economics_finance_Assessing the Effects of Monetary Shocks on Macroeconomic St.pdf",
+            "economics_finance_Time-Varying Identification of Monetary Policy Shocks.pdf"
+          ],
+          "avg_primary_prob": 1.0
+        }
+      },
+      "routing_reasoning": "Cluster 0 provides insights into climate change projections and their impacts on various aspects, including temperature and rainfall patterns. Cluster 2, on the other hand, discusses time-series data analysis in various fields, including economics, which can help understand how these projections influence economic policy decisions.",
+      "timestamp": "2026-04-05T05:51:59"
+    },
+    {
+      "query_index": 4,
+      "query": "What are the computational limits of simulating complex systems in quantum physics versus biological gene networks?",
+      "selected_clusters": [
+        0,
+        6
+      ],
+      "cluster_themes": {
+        "0": "Climate Change Projections and Impacts",
+        "6": "Quantum Computing and Quantum Information Theory"
+      },
+      "total_chunks": 8,
+      "metrics": {
+        "diversity_score": 0.5282,
+        "relevance_score": 0.3527,
+        "source_concentration": 0.375,
+        "cluster_coverage": 0.1667,
+        "intra_cluster_cohesion": 0.6003,
+        "routing_alignment": 0.4898
+      },
+      "latency": {
+        "routing_s": 6.5,
+        "retrieval_ms": 51.1
+      },
+      "cluster_breakdown": {
+        "0": {
+          "theme": "Climate Change Projections and Impacts",
+          "n_chunks": 4,
+          "source_docs": [
+            "climate_science_Future Climate Change Projections over the Indian Region.pdf",
+            "climate_science_Climate Adaptation with Reinforcement Learning_ Experiments .pdf"
+          ],
+          "avg_primary_prob": 1.0
+        },
+        "6": {
+          "theme": "Quantum Computing and Quantum Information Theory",
+          "n_chunks": 4,
+          "source_docs": [
+            "quantum_computing_Arbitrary Ground State Observables from Quantum Computed Mom.pdf",
+            "quantum_computing_Mini-maximizing two qubit quantum computations.pdf",
+            "quantum_computing_Tianyan_ Cloud services with quantum advantage.pdf"
+          ],
+          "avg_primary_prob": 1.0
+        }
+      },
+      "routing_reasoning": "Cluster 0 offers insights into climate change projections and impacts, which provides a context for understanding the computational limits of simulating complex systems in quantum physics. Cluster 6 focuses on quantum computing and its applications in various fields, including quantum physics, offering contrasting perspectives on the computational limits of simulating these systems.",
+      "timestamp": "2026-04-05T05:52:06"
+    },
+    {
+      "query_index": 5,
+      "query": "How does uncertainty quantification work in climate models compared to neural network predictions?",
+      "selected_clusters": [
+        0,
+        11
+      ],
+      "cluster_themes": {
+        "0": "Climate Change Projections and Impacts",
+        "11": "Reinforcement Learning in Climate Science"
+      },
+      "total_chunks": 8,
+      "metrics": {
+        "diversity_score": 0.3941,
+        "relevance_score": 0.5861,
+        "source_concentration": 0.375,
+        "cluster_coverage": 0.1667,
+        "intra_cluster_cohesion": 0.6462,
+        "routing_alignment": 0.6043
+      },
+      "latency": {
+        "routing_s": 6.2,
+        "retrieval_ms": 25.8
+      },
+      "cluster_breakdown": {
+        "0": {
+          "theme": "Climate Change Projections and Impacts",
+          "n_chunks": 4,
+          "source_docs": [
+            "climate_science_Precipitation extremes under climate change.pdf",
+            "climate_science_ACE_ A fast_ skillful learned global atmospheric model for c.pdf"
+          ],
+          "avg_primary_prob": 0.9927
+        },
+        "11": {
+          "theme": "Reinforcement Learning in Climate Science",
+          "n_chunks": 4,
+          "source_docs": [
+            "robotics_Data-Efficient Deep Reinforcement Learning for Attitude Cont.pdf",
+            "economics_finance_Reinforcement Learning for Monetary Policy Under Macroeconom.pdf"
+          ],
+          "avg_primary_prob": 1.0
+        }
+      },
+      "routing_reasoning": "Cluster 0 provides insights into climate models and their projections, while Cluster 11 offers perspectives on reinforcement learning in climate science, both of which are relevant to understanding uncertainty quantification in climate models compared to neural network predictions. By selecting these contrasting but relevant clusters, we can provide a comprehensive answer to the user query.",
+      "timestamp": "2026-04-05T05:52:12"
+    },
+    {
+      "query_index": 6,
+      "query": "What are the risks and failure modes of autonomous systems — both robotic and financial?",
+      "selected_clusters": [
+        1,
+        4
+      ],
+      "cluster_themes": {
+        "1": "Deep Learning Methods for Optimization Problems",
+        "4": "Graph Theory Applications in Transportation and Deep Learning"
+      },
+      "total_chunks": 8,
+      "metrics": {
+        "diversity_score": 0.4421,
+        "relevance_score": 0.3981,
+        "source_concentration": 0.5,
+        "cluster_coverage": 0.1667,
+        "intra_cluster_cohesion": 0.6435,
+        "routing_alignment": 0.4727
+      },
+      "latency": {
+        "routing_s": 6.04,
+        "retrieval_ms": 27.4
+      },
+      "cluster_breakdown": {
+        "1": {
+          "theme": "Deep Learning Methods for Optimization Problems",
+          "n_chunks": 4,
+          "source_docs": [
+            "deep_learning_A Tutorial about Random Neural Networks in Supervised Learni.pdf"
+          ],
+          "avg_primary_prob": 1.0
+        },
+        "4": {
+          "theme": "Graph Theory Applications in Transportation and Deep Learning",
+          "n_chunks": 4,
+          "source_docs": [
+            "deep_learning_The Modern Mathematics of Deep Learning.pdf",
+            "robotics_Robotic Manipulation Datasets for Offline Compositional Rein.pdf"
+          ],
+          "avg_primary_prob": 1.0
+        }
+      },
+      "routing_reasoning": "Cluster 1 offers insights into the risks and failure modes of autonomous systems in the context of deep learning methods for optimization problems, while Cluster 4 provides perspectives on graph theory applications in transportation networks, which can be relevant to autonomous vehicles. Together, these clusters offer contrasting but relevant perspectives on the risks and failure modes of robotic autonomous systems.",
+      "timestamp": "2026-04-05T05:52:18"
+    },
+    {
+      "query_index": 7,
+      "query": "How does noise affect reliability in quantum computing versus genomic sequencing pipelines?",
+      "selected_clusters": [
+        0,
+        6
+      ],
+      "cluster_themes": {
+        "0": "Climate Change Projections and Impacts",
+        "6": "Quantum Computing and Quantum Information Theory"
+      },
+      "total_chunks": 8,
+      "metrics": {
+        "diversity_score": 0.5282,
+        "relevance_score": 0.341,
+        "source_concentration": 0.375,
+        "cluster_coverage": 0.1667,
+        "intra_cluster_cohesion": 0.6003,
+        "routing_alignment": 0.4841
+      },
+      "latency": {
+        "routing_s": 6.84,
+        "retrieval_ms": 37.5
+      },
+      "cluster_breakdown": {
+        "0": {
+          "theme": "Climate Change Projections and Impacts",
+          "n_chunks": 4,
+          "source_docs": [
+            "climate_science_Future Climate Change Projections over the Indian Region.pdf",
+            "climate_science_Climate Adaptation with Reinforcement Learning_ Experiments .pdf"
+          ],
+          "avg_primary_prob": 1.0
+        },
+        "6": {
+          "theme": "Quantum Computing and Quantum Information Theory",
+          "n_chunks": 4,
+          "source_docs": [
+            "quantum_computing_Arbitrary Ground State Observables from Quantum Computed Mom.pdf",
+            "quantum_computing_Mini-maximizing two qubit quantum computations.pdf",
+            "quantum_computing_Tianyan_ Cloud services with quantum advantage.pdf"
+          ],
+          "avg_primary_prob": 1.0
+        }
+      },
+      "routing_reasoning": "Cluster 0 provides insights into quantum computing and its impact on climate change, which may indirectly discuss noise in quantum computing. Cluster 6 focuses on quantum computing and its applications, offering a more direct perspective on the effects of noise in quantum computing. Cluster 2 offers a minority viewpoint and discusses time-series data analysis in various fields, including genomic sequencing pipelines, providing a contrasting perspective on genomic sequencing noise.",
+      "timestamp": "2026-04-05T05:52:25"
+    },
+    {
+      "query_index": 8,
+      "query": "What optimization techniques are shared between training large language models and solving quantum variational problems?",
+      "selected_clusters": [
+        1,
+        3
+      ],
+      "cluster_themes": {
+        "1": "Deep Learning Methods for Optimization Problems",
+        "3": "Quantum Computing Ground State Observables"
+      },
+      "total_chunks": 8,
+      "metrics": {
+        "diversity_score": 0.3949,
+        "relevance_score": 0.5692,
+        "source_concentration": 0.25,
+        "cluster_coverage": 0.1667,
+        "intra_cluster_cohesion": 0.6837,
+        "routing_alignment": 0.5889
+      },
+      "latency": {
+        "routing_s": 5.23,
+        "retrieval_ms": 25.4
+      },
+      "cluster_breakdown": {
+        "1": {
+          "theme": "Deep Learning Methods for Optimization Problems",
+          "n_chunks": 4,
+          "source_docs": [
+            "deep_learning_Deep Learning and Computational Physics _Lecture Notes_.pdf",
+            "deep_learning_Dual Accuracy-Quality-Driven Neural Network for Prediction I.pdf",
+            "deep_learning_Deep learning observables in computational fluid dynamics.pdf"
+          ],
+          "avg_primary_prob": 1.0
+        },
+        "3": {
+          "theme": "Quantum Computing Ground State Observables",
+          "n_chunks": 4,
+          "source_docs": [
+            "quantum_computing_Quantum Computing in the NISQ era and beyond.pdf",
+            "quantum_computing_Quantum simulation and computing with Rydberg-interacting qu.pdf",
+            "quantum_computing_Quantum Algorithm Implementations for Beginners.pdf"
+          ],
+          "avg_primary_prob": 1.0
+        }
+      },
+      "routing_reasoning": "Cluster 1 offers insights into deep learning methods for optimization problems, which may provide a connection to training large language models. Cluster 3 focuses on quantum computing ground state observables, where variational quantum algorithms are discussed, potentially sharing techniques with the user query.",
+      "timestamp": "2026-04-05T05:52:30"
+    },
+    {
+      "query_index": 9,
+      "query": "How do feedback loops appear in climate systems, gene regulatory networks, and robotic control?",
+      "selected_clusters": [
+        0,
+        11
+      ],
+      "cluster_themes": {
+        "0": "Climate Change Projections and Impacts",
+        "11": "Reinforcement Learning in Climate Science"
+      },
+      "total_chunks": 8,
+      "metrics": {
+        "diversity_score": 0.4028,
+        "relevance_score": 0.5623,
+        "source_concentration": 0.5,
+        "cluster_coverage": 0.1667,
+        "intra_cluster_cohesion": 0.6726,
+        "routing_alignment": 0.6233
+      },
+      "latency": {
+        "routing_s": 4.95,
+        "retrieval_ms": 26.0
+      },
+      "cluster_breakdown": {
+        "0": {
+          "theme": "Climate Change Projections and Impacts",
+          "n_chunks": 4,
+          "source_docs": [
+            "climate_science_Invasive species_ extreme fire risk_ and toxin release under.pdf",
+            "climate_science_Zonally opposing shifts of the intertropical convergence zon.pdf",
+            "climate_science_ACE_ A fast_ skillful learned global atmospheric model for c.pdf",
+            "climate_science_Precipitation extremes under climate change.pdf"
+          ],
+          "avg_primary_prob": 0.9998
+        },
+        "11": {
+          "theme": "Reinforcement Learning in Climate Science",
+          "n_chunks": 4,
+          "source_docs": [
+            "robotics_Adaptive Control of Robot Manipulators With Uncertain Kinema.pdf"
+          ],
+          "avg_primary_prob": 1.0
+        }
+      },
+      "routing_reasoning": "Cluster 0 provides insights into feedback loops in climate systems, while Cluster 11 offers perspectives on reinforcement learning in climate science, which can help understand the role of feedback loops in adapting to climate change.",
+      "timestamp": "2026-04-05T05:52:35"
+    },
+    {
+      "query_index": 10,
+      "query": "What does 'hallucination' or unreliable output look like across AI systems, economic forecasting, and scientific measurement?",
+      "selected_clusters": [
+        1,
+        5
+      ],
+      "cluster_themes": {
+        "1": "Deep Learning Methods for Optimization Problems",
+        "5": "Gene Ontology Analysis and Evidence Codes"
+      },
+      "total_chunks": 6,
+      "metrics": {
+        "diversity_score": 0.387,
+        "relevance_score": 0.5316,
+        "source_concentration": 0.6667,
+        "cluster_coverage": 0.1667,
+        "intra_cluster_cohesion": 0.6693,
+        "routing_alignment": 0.5458
+      },
+      "latency": {
+        "routing_s": 5.77,
+        "retrieval_ms": 26.2
+      },
+      "cluster_breakdown": {
+        "1": {
+          "theme": "Deep Learning Methods for Optimization Problems",
+          "n_chunks": 4,
+          "source_docs": [
+            "deep_learning_Dual Accuracy-Quality-Driven Neural Network for Prediction I.pdf"
+          ],
+          "avg_primary_prob": 0.9999
+        },
+        "5": {
+          "theme": "Gene Ontology Analysis and Evidence Codes",
+          "n_chunks": 2,
+          "source_docs": [
+            "genomics_biology_Gene Ontology_ Pitfalls_ Biases_ Remedies.pdf"
+          ],
+          "avg_primary_prob": 1.0
+        }
+      },
+      "routing_reasoning": "Cluster 1 provides insights into AI systems and their potential for 'hallucination' or unreliable output through deep learning methods. Cluster 5 discusses Gene Ontology Analysis, which can be related to scientific measurement, and may touch upon issues of reliability and potential 'hallucinations' in data interpretation.",
+      "timestamp": "2026-04-05T05:52:41"
+    }
+  ],
+  "aggregate": {
+    "diversity_score": {
+      "mean": 0.4256,
+      "std": 0.0575,
+      "min": 0.3382,
+      "max": 0.5282
+    },
+    "relevance_score": {
+      "mean": 0.5037,
+      "std": 0.0966,
+      "min": 0.341,
+      "max": 0.6067
+    },
+    "source_concentration": {
+      "mean": 0.415,
+      "std": 0.1088,
+      "min": 0.25,
+      "max": 0.6667
+    },
+    "cluster_coverage": {
+      "mean": 0.1667,
+      "std": 0.0,
+      "min": 0.1667,
+      "max": 0.1667
+    },
+    "intra_cluster_cohesion": {
+      "mean": 0.6612,
+      "std": 0.0759,
+      "min": 0.5497,
+      "max": 0.8489
+    },
+    "routing_alignment": {
+      "mean": 0.5514,
+      "std": 0.0532,
+      "min": 0.4727,
+      "max": 0.6233
+    }
+  },
+  "cluster_frequency": {
+    "0": 6,
+    "3": 2,
+    "1": 4,
+    "5": 2,
+    "2": 1,
+    "6": 2,
+    "11": 2,
+    "4": 1
+  },
+  "gmm_k": 12,
+  "n_clusters": 12,
+  "latency": {
+    "avg_routing_s": 5.67,
+    "avg_retrieval_ms": 34.3
+  },
+  "n_queries": 10,
+  "n_successful": 10,
+  "timestamp": "2026-04-05T05:52:41"
+}
