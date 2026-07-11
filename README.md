@@ -1,88 +1,176 @@
-# AC-RAG — Adaptive Cluster Retrieval
+# Retrieval-Augmented Generation using Semantic Clustering
 
-Three-column web interface for the AC-RAG pipeline.
-Backend: Flask · Frontend: React + Vite
+A Retrieval-Augmented Generation (RAG) system that improves retrieval diversity by organizing document embeddings into semantic clusters before retrieval. Instead of relying solely on similarity-based top-*k* retrieval, the system routes queries through relevant semantic clusters to reduce redundancy and improve context coverage, particularly for multi-topic queries.
+
+## Features
+
+- Semantic document retrieval using **BAAI/bge-m3** embeddings
+- Approximate nearest neighbor search with **FAISS (HNSW)**
+- Semantic clustering using **UMAP** and **Gaussian Mixture Models (GMM)**
+- LLM-generated cluster profiles for query routing
+- Maximal Marginal Relevance (MMR) reranking for diverse retrieval
+- Interactive web interface built with React and Flask
 
 ---
 
-## Setup
+## Tech Stack
 
-### 1. Python backend
+| Component | Technology |
+|----------|------------|
+| Backend | Flask |
+| Frontend | React + Vite |
+| Embedding Model | BAAI/bge-m3 |
+| LLM | OpenAI GPT-4o-mini |
+| Vector Index | FAISS (HNSW) |
+| Clustering | UMAP + Gaussian Mixture Model (GMM) |
+
+---
+
+## Prerequisites
+
+- Python 3.10+
+- Node.js 18+
+- OpenAI API key
+
+Create a `.env` file in the project root and add:
+
+```env
+OPENAI_API_KEY=your_openai_api_key
+```
+
+---
+
+# Backend Setup
+
+Create a virtual environment:
 
 ```bash
-# from rag-pipeline/
 python -m venv .venv
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
+```
+
+Activate it:
+
+### Windows
+
+```bash
+.venv\Scripts\activate
+```
+
+### macOS / Linux
+
+```bash
+source .venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
 pip install -r requirements.txt
 ```
 
-### 2. Ollama (local LLM)
+Start the backend:
 
 ```bash
-# Install from https://ollama.com
-ollama pull mistral:latest
-ollama serve                     # runs on http://localhost:11434
+python -m app.main
 ```
 
-### 3. React frontend
+The backend will be available at:
+
+```
+http://localhost:8000
+```
+
+---
+
+# Frontend Setup
+
+Navigate to the frontend directory:
 
 ```bash
 cd frontend
+```
+
+Install dependencies:
+
+```bash
 npm install
 ```
 
----
-
-## Running
-
-### Backend
+Start the development server:
 
 ```bash
-# from rag-pipeline/
-python -m app.main
-# → Flask on http://localhost:8000
-```
-
-### Frontend
-
-```bash
-cd frontend
 npm run dev
-# → Vite on http://localhost:5173
+```
+
+The frontend will be available at:
+
+```
+http://localhost:5173
 ```
 
 ---
 
-## Pipeline steps (in order)
+# Using the Application
 
-1. **Drop documents** into `data/raw_docs/` (.pdf or .txt)
+### 1. Add Documents
 
-2. **Preprocess** — POST `/api/preprocess`
-   - Loads documents, chunks them, embeds with BGE-M3, builds HNSW index
-   - Or click **"1 · Preprocess"** in the UI header
+Place PDF or text documents inside:
 
-3. **Cluster** — POST `/api/cluster`
-   - UMAP 1024D→5D, BIC sweep to find optimal k, final GMM,
-     soft assignments, enriched metadata, two-pass contrastive LLM profiling
-   - Or click **"2 · Cluster"** in the UI header
-
-4. **Query** — POST `/api/query`
-   - Mistral routes to 2-3 clusters → HNSW filtered retrieval + MMR → Mistral answer
+```
+data/raw_docs/
+```
 
 ---
 
-## API reference
+### 2. Preprocess Documents
 
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | `/api/health` | Liveness + Ollama + pipeline status |
-| GET | `/api/preprocess/status` | Which artefacts exist on disk |
-| POST | `/api/preprocess` | Run preprocessing pipeline |
-| POST | `/api/cluster` | Run clustering + LLM profiling |
-| GET | `/api/clusters` | Return all cluster profiles |
-| POST | `/api/query` | Full query pipeline |
+Run the preprocessing pipeline to:
 
-### POST /api/query — request body
+- Load documents
+- Split documents into chunks
+- Generate embeddings
+- Build the FAISS vector index
+
+API:
+
+```
+POST /api/preprocess
+```
+
+or click **Preprocess** from the web interface.
+
+---
+
+### 3. Generate Semantic Clusters
+
+Run the clustering pipeline to:
+
+- Reduce embedding dimensions using UMAP
+- Generate semantic clusters using GMM
+- Create cluster profiles for query routing
+
+API:
+
+```
+POST /api/cluster
+```
+
+or click **Cluster** from the web interface.
+
+---
+
+### 4. Query the System
+
+Submit a query through the UI or API.
+
+The system will:
+
+1. Identify relevant semantic clusters
+2. Retrieve candidate document chunks
+3. Apply MMR reranking
+4. Generate a response using GPT-4o-mini
+
+Example request:
 
 ```json
 {
@@ -93,13 +181,50 @@ npm run dev
 }
 ```
 
+API:
+
+```
+POST /api/query
+```
+
 ---
 
-## Key design decisions
+# API Endpoints
 
-- **config.py** is the single source of truth — all hyperparameters live there
-- **UMAP vectors are temporary** — used only for GMM clustering, never for retrieval
-- **Retrieval uses raw 1024D BGE-M3 vectors** in HNSW (cosine via inner product on unit vecs)
-- **MMR reranking** within each cluster balances similarity vs diversity
-- **Two-pass profiling** injects nearest-neighbor profiles into pass-2 prompts
-- Module-level singletons (`_bge_model`, `_hnsw_index`, `_enriched`) are loaded once at startup
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/health` | Health check |
+| GET | `/api/preprocess/status` | View preprocessing status |
+| POST | `/api/preprocess` | Run preprocessing pipeline |
+| POST | `/api/cluster` | Generate semantic clusters |
+| GET | `/api/clusters` | Retrieve cluster profiles |
+| POST | `/api/query` | Execute the retrieval and generation pipeline |
+
+---
+
+# Project Configuration
+
+Project-wide settings such as embedding model, clustering parameters, retrieval settings, and generation options are managed through:
+
+```
+config.py
+```
+
+---
+
+# Technologies
+
+- Flask
+- React
+- Vite
+- OpenAI GPT-4o-mini
+- BAAI/bge-m3
+- FAISS (HNSW)
+- UMAP
+- Gaussian Mixture Model (GMM)
+
+---
+
+# License
+
+This project is intended for academic and research purposes.
