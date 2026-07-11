@@ -1,6 +1,4 @@
 """
-schemas.py
-----------
 Pydantic models for all FastAPI request bodies and response payloads.
 Keeps main.py clean and gives automatic OpenAPI docs for free.
 """
@@ -75,6 +73,7 @@ class QueryRequest(BaseModel):
 class ClusterTheme(BaseModel):
     cluster_id:        int
     theme:             str
+    key_entities:      list[str]
     contrastive_edge:  str
     n_members:         int
     avg_prob:          float
@@ -131,6 +130,8 @@ class ClusterProfileResponse(BaseModel):
 # ---------------------------------------------------------------------------
 
 class HealthResponse(BaseModel):
-    status:        str   # "ok"
-    ollama_alive:  bool
-    pipeline_ready: bool
+    status:           str
+    openai_alive:     bool
+    pipeline_ready:   bool
+    documents_count:  int
+    pipeline_running: bool

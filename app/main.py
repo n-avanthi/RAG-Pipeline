@@ -1,19 +1,4 @@
-"""
-main.py
--------
-Flask application entry point for the AC-RAG backend.
-
-Key change from previous version:
-  /api/process  — runs preprocess + cluster in a background thread.
-                  Returns immediately with {"status": "started"}.
-  /api/process/stream — SSE endpoint the frontend polls for live log lines.
-  /api/process/status — returns current pipeline step + done/error state.
-
-This fixes the single-threaded Flask freeze where UMAP/GMM/LLM profiling
-blocked the entire server (including /api/health) for 10+ minutes.
-
-All other endpoints unchanged.
-"""
+# Flask application entry point for the RAG backend.
 
 import json as _json
 import logging
@@ -26,9 +11,13 @@ from flask import Flask, Response, jsonify, request, stream_with_context
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
 
+from app.models.schemas import QueryRequest
+from pydantic import ValidationError
+
 from app.config import (
     CLUSTER_PROFILES_PATH,
     RAW_DOCS_DIR,
+    LLM_MODEL_NAME
 )
 from app.preprocess import artefacts_exist, run_preprocessing
 from app.cluster_profiles import clustering_artefacts_exist, run_clustering
@@ -39,8 +28,9 @@ from app.rag_pipeline import (
     retrieve_with_hnsw_filtered,
     assemble_rag_context,
     generate_answer,
-    # check_ollama_alive,
-    check_openai_alive
+    check_openai_alive,
+    get_openai_client,
+    _cluster_profiles,
 )
 
 # ── Logging ──────────────────────────────────────────────────────────────────
@@ -80,7 +70,7 @@ def _push_log(message: str, level: str = "info"):
     try:
         _log_queue.put_nowait(entry)
     except queue.Full:
-        pass  # drop oldest not newest — frontend will reconnect
+        pass  # queue full — newest entry dropped, oldest retained
     getattr(logger, level, logger.info)(message)
 
 
@@ -179,18 +169,18 @@ def _run_pipeline_background(force_rerun: bool):
         original_profile = cp.profile_all_clusters
         def _profile_patched(cluster_groups, cluster_neighbors):
             _set_step("Generating cluster profiles (LLM)")
-            _push_log(f"Profiling {len(cluster_groups)} clusters with Mistral...")
+            _push_log(f"Profiling {len(cluster_groups)} clusters with GPT-4o-mini...")
             result = original_profile(cluster_groups, cluster_neighbors)
             _push_log(f"Profiling done — {len(result.get('profiles', {}))} profiles generated.")
             return result
         cp.profile_all_clusters = _profile_patched
 
-        result2 = run_clustering(force_rerun=force_rerun)
-
-        # Restore originals
-        cp.fit_umap_5d          = original_fit_umap
-        cp.bic_sweep            = original_bic
-        cp.profile_all_clusters = original_profile
+        try:
+            result2 = run_clustering(force_rerun=force_rerun)
+        finally:
+            cp.fit_umap_5d          = original_fit_umap
+            cp.bic_sweep            = original_bic
+            cp.profile_all_clusters = original_profile
 
         if result2.get("status") == "error":
             raise RuntimeError(result2["message"])
@@ -403,18 +393,17 @@ def query():
     if not is_pipeline_ready():
         return error_response(
             "Pipeline not ready. Upload and process your documents first.", 503)
-
+    
     body = request.get_json(silent=True)
-    if not body or not body.get("query"):
-        return error_response("Request body must include 'query'.")
+    try:
+        req = QueryRequest.model_validate(body or {})
+    except ValidationError as e:
+        return error_response(str(e), 400)
 
-    user_query       = str(body["query"]).strip()
-    top_k            = int(body.get("top_k", 3))
-    diversity_lambda = float(body.get("diversity_lambda", 0.5))
-    do_generate      = bool(body.get("generate_answer", True))
-
-    if len(user_query) < 3:
-        return error_response("Query must be at least 3 characters.")
+    user_query       = req.query
+    top_k            = req.top_k
+    diversity_lambda = req.diversity_lambda
+    do_generate      = req.generate_answer
 
     try:
         routing     = route_query(user_query)
@@ -426,7 +415,6 @@ def query():
         if do_generate:
             answer, answer_latency = generate_answer(user_query, rag_context)
 
-        from app.rag_pipeline import _cluster_profiles
         cluster_results = []
         for cid, chunks in retrieved.items():
             theme = _cluster_profiles.get(str(cid), {}).get(
@@ -466,7 +454,121 @@ def query():
     except Exception as e:
         logger.exception("Unexpected error during query")
         return error_response(f"Internal error: {e}", 500)
+    
+# ── POST /api/related_questions ───────────────────────────────────────────────
+@app.post("/api/related_questions")
+def related_questions():
+    """
+    Returns 3 concise follow-up questions for a given query.
+    Uses the same OpenAI client as the rest of the pipeline.
+    Fails silently (returns empty list) — the UI handles this gracefully.
+    """
+    body = request.get_json(silent=True)
+    if not body or not body.get("query"):
+        return error_response("Request body must include 'query'.")
+ 
+    user_query = str(body["query"]).strip()
+    if len(user_query) < 3:
+        return error_response("Query too short.")
+ 
+    try:
+        client = get_openai_client()
+ 
+        response = client.chat.completions.create(
+            model=LLM_MODEL_NAME,
+            temperature=0.7,
+            max_tokens=200,
+            messages=[
+                {
+                    "role": "system",
+                    "content": (
+                        "You generate exactly 3 concise follow-up questions "
+                        "a user might ask after their initial query. "
+                        "Return ONLY a JSON object: {\"questions\": [\"q1\", \"q2\", \"q3\"]}. "
+                        "No markdown, no explanation outside the JSON."
+                    ),
+                },
+                {
+                    "role": "user",
+                    "content": f"Initial query: {user_query}",
+                },
+            ],
+            response_format={"type": "json_object"},
+        )
+ 
+        import json as _j
+        parsed = _j.loads(response.choices[0].message.content.strip())
+        questions = [str(q) for q in parsed.get("questions", []) if q][:3]
+        return jsonify({"questions": questions})
+ 
+    except Exception as e:
+        logger.warning("related_questions failed: %s", e)
+        return jsonify({"questions": []})   # silent fail — UI handles gracefully
+ 
+ 
+# ── POST /api/suggested_questions ─────────────────────────────────────────────
+#
+@app.post("/api/suggested_questions")
+def suggested_questions():
+    """
+    Given a summary of cluster topics from the corpus, returns 5 good demo
+    questions. Each question must span at least two distinct topic areas so
+    that the router is forced to pull from multiple clusters — avoiding the
+    single-document collapse that happens with narrow, single-topic queries.
+    """
+    body = request.get_json(silent=True)
+    if not body or not body.get("topic_summary"):
+        return jsonify({"questions": []})
 
+    topic_summary = str(body["topic_summary"]).strip()[:2000]  # slightly larger cap for richer input
+
+    try:
+        client = get_openai_client()
+
+        response = client.chat.completions.create(
+            model=LLM_MODEL_NAME,
+            temperature=0.4,          # lower temp = less hallucination
+            max_tokens=400,
+            messages=[
+                {
+                    "role": "system",
+                    "content": (
+                        "You generate exactly 5 specific questions that a researcher could ask "
+                        "a document search system about the given knowledge base.\n\n"
+                        "STRICT RULES — violating any rule means your output is invalid:\n"
+                        "1. Every question MUST be answerable ONLY using the topics listed below. "
+                        "Do not introduce concepts, papers, or techniques not mentioned in the topic list.\n"
+                        "2. Every question MUST require knowledge from AT LEAST TWO different topic areas "
+                        "in the list — single-topic questions are not allowed.\n"
+                        "3. Questions must be specific and comparative — prefer 'How does X differ from Y' "
+                        "or 'What do X and Y have in common' over 'What is X'.\n"
+                        "4. Do not ask about meditation, psychology, history, or anything outside the "
+                        "topic list provided by the user.\n\n"
+                        "Return ONLY a JSON object: "
+                        "{\"questions\": [\"q1\", \"q2\", \"q3\", \"q4\", \"q5\"]}. "
+                        "No markdown, no explanation outside the JSON."
+                    ),
+                },
+                {
+                    "role": "user",
+                    "content": (
+                        f"Knowledge base topics (these are the ONLY topics you may use):\n"
+                        f"{topic_summary}\n\n"
+                        f"Generate 5 questions that each span at least two of the above topics."
+                    ),
+                },
+            ],
+            response_format={"type": "json_object"},
+        )
+
+        import json as _j
+        parsed = _j.loads(response.choices[0].message.content.strip())
+        questions = [str(q) for q in parsed.get("questions", []) if q][:5]
+        return jsonify({"questions": questions})
+
+    except Exception as e:
+        logger.warning("suggested_questions failed: %s", e)
+        return jsonify({"questions": []})
 
 # ── Entry point ───────────────────────────────────────────────────────────────
 if __name__ == "__main__":

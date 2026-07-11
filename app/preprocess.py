@@ -1,20 +1,4 @@
-"""
-preprocess.py
--------------
-Offline pipeline — Step 1 of the AC-RAG system.
-
-Functions here mirror the original Colab notebook exactly:
-  load_documents_from_folder()
-  chunk_documents()
-  embed_chunks()
-  build_metadata()
-  build_hnsw_index()
-  verify_embeddings()
-  run_preprocessing()   ← orchestrator called by the Flask endpoint
-
-All heavy objects (model, index) are kept module-level so they are
-loaded once per process, not once per request.
-"""
+# Offline pipeline - Step 1
 
 import os
 import gc
@@ -43,9 +27,6 @@ from app.config import (
 
 logger = logging.getLogger(__name__)
 
-# ---------------------------------------------------------------------------
-# Module-level singletons — loaded once, reused by retrieval
-# ---------------------------------------------------------------------------
 _bge_model:  SentenceTransformer | None = None
 _hnsw_index: faiss.IndexHNSWFlat  | None = None
 
@@ -81,7 +62,6 @@ def load_documents_from_folder(folder_path: str) -> list:
     """
     Recursively scans folder_path for .pdf and .txt files.
     Returns a list of LangChain Document objects with metadata.
-    Identical to the Colab version.
     """
     raw_docs    = []
     found_files = []

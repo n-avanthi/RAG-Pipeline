@@ -1,7 +1,5 @@
 """
-rag_pipeline.py
----------------
-Online pipeline — Step 4 of AC-RAG.
+Online pipeline
 
 At query time:
   1. route_query()                  — LLM reads cluster profiles + geometric
@@ -10,15 +8,7 @@ At query time:
   3. assemble_rag_context()         — interleaves chunks into a context string
   4. generate_answer()              — final answer over assembled context
 
-Change from previous version:
-  - Cluster centroids are precomputed and cached at load_pipeline_state() time.
-  - route_query() computes cosine similarity from the query vector to each
-    centroid and injects a geometric ranking into the router prompt as a
-    tiebreaker alongside the LLM text profiles. This grounds routing in
-    actual embedding geometry rather than purely LLM-inferred semantics.
-
 LLM backend: OpenAI (gpt-4o-mini)
-Ollama calls are commented out below each OpenAI equivalent.
 """
 
 import os
@@ -130,11 +120,25 @@ def load_pipeline_state() -> bool:
     _cluster_to_faiss_ids.clear()
     _index_to_record.clear()
 
+    # for record in _enriched:
+    #     cid  = record["primary_cluster"]
+    #     fidx = record["index"]
+    #     _cluster_to_faiss_ids.setdefault(cid, set()).add(fidx)
+    #     _index_to_record[fidx] = record
+
     for record in _enriched:
-        cid  = record["primary_cluster"]
         fidx = record["index"]
-        _cluster_to_faiss_ids.setdefault(cid, set()).add(fidx)
         _index_to_record[fidx] = record
+
+        # Register under primary cluster
+        cid = record["primary_cluster"]
+        if cid != -1:
+            _cluster_to_faiss_ids.setdefault(cid, set()).add(fidx)
+
+        # Also register under secondary clusters (bridge chunks)
+        for sec in record.get("secondary_clusters", []):
+            sec_cid = sec["cluster_id"]
+            _cluster_to_faiss_ids.setdefault(sec_cid, set()).add(fidx)
 
     _valid_cluster_ids = sorted(map(int, _cluster_profiles.keys()))
 
@@ -222,7 +226,8 @@ def _format_profiles_for_llm(q_vec: np.ndarray | None = None) -> str:
             f"\nCluster {cid_str}{minority}",
             f"  Members       : {n} chunks (avg confidence: {avg_p:.3f})",
             f"  Theme         : {profile['primary_theme']}",
-            f"  Key entities  : {' | '.join(profile['key_entities'])}",
+            # f"  Key entities  : {' | '.join(profile['key_entities'])}",
+            f"  Key entities  : {' | '.join(e for e in profile['key_entities'] if e != '—')}",
             f"  Distinct edge : {profile['contrastive_edge'][:150]}",
         ]
 
@@ -421,18 +426,6 @@ def route_query(user_query: str) -> dict:
         f"Last error: {last_error}"
     )
 
-# ---------------------------------------------------------------------------
-# Ollama route_query — commented out
-# ---------------------------------------------------------------------------
-# def route_query_ollama(user_query: str) -> dict:
-#     payload = {
-#         "model": LLM_MODEL_NAME, "prompt": prompt, "stream": False,
-#         "format": "json",
-#         "options": {"temperature": ROUTER_TEMPERATURE, "num_predict": ROUTER_NUM_PREDICT},
-#     }
-#     r = requests.post(f"{OLLAMA_HOST}/api/generate", json=payload, timeout=ROUTER_TIMEOUT_S)
-#     ...
-
 
 # ---------------------------------------------------------------------------
 # HNSW retrieval + MMR
@@ -444,6 +437,11 @@ def _mmr_select(
     top_k     : int,
     lambda_   : float,
 ) -> list[tuple[float, int]]:
+    """
+    Maximal Marginal Relevance selection.
+    MMR = lambda * cos(d_i, q) - (1 - lambda) * max_{d_j in S} cos(d_i, d_j)
+    Uses actual document-document cosine similarity from the embeddings matrix.
+    """
     selected  = []
     remaining = list(candidates)
 
@@ -455,12 +453,23 @@ def _mmr_select(
             continue
 
         best_mmr, best_cand = -float("inf"), None
+
+        # Embeddings for already-selected chunks
+        selected_vecs = _embeddings_matrix[
+            [fidx for _, fidx in selected]
+        ]  # (|S|, dim)
+
         for cand in remaining:
-            sim_to_query    = cand[0]
-            sim_to_selected = max(
-                1.0 - abs(cand[0] - sel[0]) for sel in selected
-            )
+            sim_to_query = cand[0]  # already cosine — from HNSW inner product
+
+            # True cosine similarity between candidate and each selected chunk
+            cand_vec = _embeddings_matrix[cand[1]]  # (dim,)
+            # Both are unit-normalised so dot product = cosine similarity
+            cos_to_selected = selected_vecs @ cand_vec  # (|S|,)
+            sim_to_selected = float(cos_to_selected.max())
+
             mmr = lambda_ * sim_to_query - (1 - lambda_) * sim_to_selected
+
             if mmr > best_mmr:
                 best_mmr  = mmr
                 best_cand = cand
@@ -470,7 +479,6 @@ def _mmr_select(
             remaining.remove(best_cand)
 
     return selected
-
 
 def retrieve_with_hnsw_filtered(
     routing_result  : dict,
@@ -536,6 +544,16 @@ def retrieve_with_hnsw_filtered(
             chunks_out.append(record)
 
         retrieved[cid] = chunks_out
+
+    seen_fidx: set[int] = set()
+    for cid in selected:
+        deduped = []
+        for chunk in retrieved.get(cid, []):
+            fidx = chunk["index"]
+            if fidx not in seen_fidx:
+                seen_fidx.add(fidx)
+                deduped.append(chunk)
+        retrieved[cid] = deduped
 
     return retrieved
 

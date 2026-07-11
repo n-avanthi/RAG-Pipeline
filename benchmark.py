@@ -1,17 +1,4 @@
 """
-benchmark.py
-------------
-Evaluation script for AC-RAG vs Vanilla RAG.
-Run from the project root:
-
-    python benchmark.py
-
-Outputs:
-  - Clean tables printed to terminal
-  - benchmarks.json saved to project root
-
-Design notes
-------------
 Vanilla RAG: same HNSW index, same BGE-M3 embeddings, flat top-k,
 no cluster filtering, no MMR. Total chunks = AC-RAG total so
 comparisons are size-matched.

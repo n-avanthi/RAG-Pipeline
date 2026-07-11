@@ -1,7 +1,5 @@
 """
-cluster_profiles.py
--------------------
-Offline pipeline — Steps 2 & 3 of AC-RAG.
+Offline pipeline — Steps 2 & 3 
 
 Step 2: Soft Clustering
   fit_umap_5d()               — 1024D → 5D for GMM input only
@@ -11,12 +9,6 @@ Step 2: Soft Clustering
 
 Step 3: Contrastive LLM Profiling
   profile_all_clusters()      — two-pass LLM profiling with neighbor context
-
-Orchestrator:
-  run_clustering()            — called by the Flask endpoint
-
-LLM backend: OpenAI (gpt-4o-mini)
-Ollama calls are commented out below each OpenAI equivalent.
 """
 
 import os
@@ -42,7 +34,7 @@ from app.config import (
     EMBEDDINGS_PATH, EMBEDDINGS_5D_PATH,
     GMM_MODEL_PATH, GMM_SCALER_PATH,
     CLUSTER_ASSIGN_PATH, ENRICHED_METADATA_PATH,
-    CLUSTER_PROFILES_PATH, PATH_A_MANIFEST_PATH,
+    CLUSTER_PROFILES_PATH,                     # PATH_A_MANIFEST_PATH removed
     CHUNKS_PATH, METADATA_PATH, INDEX_PATH,
     UMAP_N_COMPONENTS, UMAP_METRIC, UMAP_RANDOM_STATE,
     UMAP_N_NEIGHBORS, UMAP_MIN_DIST,
@@ -52,7 +44,7 @@ from app.config import (
     PROFILE_CHUNKS_PER_CLUS, PROFILE_MAX_CHUNK_CHARS,
     PROFILE_TEMPERATURE, PROFILE_MAX_RETRIES,
     OPENAI_API_KEY, LLM_MODEL_NAME,
-    RANDOM_SEED, TOP_REPRESENTATIVE,
+    RANDOM_SEED,                              
 )
 from app.preprocess import load_json, save_json
 
@@ -507,28 +499,6 @@ def call_openai_for_profile(prompt: str) -> tuple[dict, dict]:
         f"Failed after {PROFILE_MAX_RETRIES} attempts. Last error: {last_error}"
     )
 
-# ---------------------------------------------------------------------------
-# Ollama call — commented out
-# ---------------------------------------------------------------------------
-# def call_ollama_for_profile(prompt: str) -> tuple[dict, dict]:
-#     payload_base = {
-#         "model" : LLM_MODEL_NAME,
-#         "stream": False,
-#         "format": "json",
-#         "options": {
-#             "temperature"   : PROFILE_TEMPERATURE,
-#             "num_predict"   : PROFILE_NUM_PREDICT,
-#             "top_p"         : 0.9,
-#             "repeat_penalty": 1.1,
-#         },
-#     }
-#     last_error = None
-#     for attempt in range(1, PROFILE_MAX_RETRIES + 1):
-#         ...
-#         r = requests.post(f"{OLLAMA_HOST}/api/generate", json=..., timeout=PROFILE_TIMEOUT_S)
-#         ...
-
-
 def _normalise_entities(profile: dict) -> None:
     entities = [str(e).strip() for e in profile.get("key_entities", []) if e]
     entities = entities[:5]
@@ -548,16 +518,10 @@ def _make_entry(cid, profile, meta, sampled_ids, members):
         "llm_meta"         : meta,
     }
 
-
 def profile_all_clusters(
     cluster_groups   : dict[int, list[dict]],
     cluster_neighbors: dict[int, list[int]],
 ) -> dict:
-    """
-    Two-pass contrastive profiling using OpenAI.
-    Pass 1: all clusters profiled without neighbor context.
-    Pass 2: re-profile injecting geometrically nearest neighbor profiles.
-    """
     n_clusters = len(cluster_groups)
     profiles   = {}
     errors     = {}
@@ -570,11 +534,9 @@ def profile_all_clusters(
         prompt           = build_profile_prompt(
             cid, ctx, n_clusters, neighbor_ids, existing_profiles
         )
-        # OpenAI
         return call_openai_for_profile(prompt), sampled_ids, members
-        # Ollama (commented out):
-        # return call_ollama_for_profile(prompt), sampled_ids, members
 
+    # ── Pass 1: profile without neighbour context ──────────────────────────
     logger.info("PASS 1 — profiling %d clusters with OpenAI…", n_clusters)
     for cid in sorted(cluster_groups.keys()):
         try:
@@ -587,10 +549,13 @@ def profile_all_clusters(
             errors[str(cid)] = {"cluster_id": cid, "error": str(e)}
             logger.error("Cluster %d profiling failed: %s", cid, e)
 
+    # ── Pass 2: re-profile with neighbour context ──────────────────────────
+    # If Pass 2 fails, we keep the Pass 1 result — never leave a cluster
+    # with no profile when a valid Pass 1 result already exists.
     logger.info("PASS 2 — re-profiling with neighbor context…")
     for cid in sorted(cluster_groups.keys()):
         if str(cid) in errors:
-            continue
+            continue  # Pass 1 already failed — nothing to build on
         try:
             (profile, meta), sampled_ids, members = _profile_one(cid, profiles)
             _normalise_entities(profile)
@@ -598,8 +563,10 @@ def profile_all_clusters(
             total_time += meta["elapsed_s"]
             logger.info("Cluster %d re-profiled in %.2fs", cid, meta["elapsed_s"])
         except RuntimeError as e:
-            errors[str(cid)] = {"cluster_id": cid, "error": str(e)}
-            logger.error("Cluster %d pass-2 profiling failed: %s", cid, e)
+            # Keep Pass 1 result — do NOT touch profiles[str(cid)]
+            logger.warning(
+                "Cluster %d Pass 2 failed — keeping Pass 1 profile. Error: %s", cid, e
+            )
 
     logger.info("Profiling done — %d profiles, %d errors, %.1fs total",
                 len(profiles), len(errors), total_time)
@@ -612,7 +579,6 @@ def profile_all_clusters(
         "timestamp"   : time.strftime("%Y-%m-%dT%H:%M:%S"),
         "total_time_s": round(total_time, 2),
     }
-
 
 # ---------------------------------------------------------------------------
 # Orchestrator — called by Flask endpoint

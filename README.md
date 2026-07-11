@@ -5,40 +5,6 @@ Backend: Flask · Frontend: React + Vite
 
 ---
 
-## Folder structure
-
-```
-rag-pipeline/
-├── app/
-│   ├── __init__.py
-│   ├── config.py            # all constants (paths, model names, hyperparams)
-│   ├── main.py              # Flask app + all API routes
-│   ├── preprocess.py        # load → chunk → embed → HNSW
-│   ├── cluster_profiles.py  # UMAP → GMM → soft assignments → LLM profiling
-│   ├── rag_pipeline.py      # router → HNSW retrieval → MMR → answer
-│   └── models/
-│       └── schemas.py       # Pydantic schemas
-├── data/
-│   ├── raw_docs/            # put your .pdf and .txt files here
-│   └── preprocessed/        # generated artefacts land here automatically
-├── frontend/
-│   ├── index.html
-│   ├── package.json
-│   ├── vite.config.js
-│   └── src/
-│       ├── main.jsx
-│       ├── App.jsx
-│       ├── index.css
-│       └── components/
-│           ├── QueryPanel.jsx
-│           ├── RoutingPanel.jsx
-│           └── ResultsPanel.jsx
-├── requirements.txt
-└── README.md
-```
-
----
-
 ## Setup
 
 ### 1. Python backend
